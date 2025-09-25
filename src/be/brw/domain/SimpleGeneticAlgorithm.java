@@ -33,7 +33,7 @@ public class SimpleGeneticAlgorithm {
         Population newPopulation = new Population(pop.getIndividuals().size(), false);
 
         if (elitism) {
-            newPopulation.getIndividuals().add(0, pop.getFittest());
+            newPopulation.getIndividuals().addFirst(pop.getFittest());
             elitismOffset = 1;
         } else {
             elitismOffset = 0;
@@ -80,8 +80,7 @@ public class SimpleGeneticAlgorithm {
             int randomId = (int) (Math.random() * pop.getIndividuals().size());
             tournament.getIndividuals().add(i, pop.getIndividual(randomId));
         }
-        Individual fittest = tournament.getFittest();
-        return fittest;
+        return tournament.getFittest();
     }
 
     protected static int getFitness(Individual individual) {
@@ -95,8 +94,7 @@ public class SimpleGeneticAlgorithm {
     }
 
     protected int getMaxFitness() {
-        int maxFitness = solution.length;
-        return maxFitness;
+        return solution.length;
     }
 
     protected void setSolution(String newSolution) {

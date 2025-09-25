@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Population {
 
-    private List<Individual> individuals;
+    private final List<Individual> individuals;
 
     public Population(int size, boolean createNew) {
         individuals = new ArrayList<>();
@@ -23,7 +23,7 @@ public class Population {
     }
 
     protected Individual getFittest() {
-        Individual fittest = individuals.get(0);
+        Individual fittest = individuals.getFirst();
         for (int i = 0; i < individuals.size(); i++) {
             if (fittest.getFitness() <= getIndividual(i).getFitness()) {
                 fittest = getIndividual(i);

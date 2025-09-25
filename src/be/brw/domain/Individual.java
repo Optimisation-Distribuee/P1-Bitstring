@@ -3,7 +3,7 @@ package be.brw.domain;
 public class Individual {
 
     protected int defaultGeneLength = 64;
-    private byte[] genes = new byte[defaultGeneLength];
+    private final byte[] genes = new byte[defaultGeneLength];
     private int fitness = 0;
 
     public Individual() {
@@ -35,11 +35,11 @@ public class Individual {
 
     @Override
     public String toString() {
-        String geneString = "";
+        StringBuilder geneString = new StringBuilder();
         for (int i = 0; i < genes.length; i++) {
-            geneString += getSingleGene(i);
+            geneString.append(getSingleGene(i));
         }
-        return geneString;
+        return geneString.toString();
     }
 
 }
