@@ -1,0 +1,41 @@
+package be.brw.domain;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Population {
+
+    private final List<Individual> individuals;
+
+    public Population(int size, boolean createNew) {
+        individuals = new ArrayList<>();
+        if (createNew) {
+            createNewPopulation(size);
+        }
+    }
+
+    protected Individual getIndividual(int index) {
+        return individuals.get(index);
+    }
+
+    protected List<Individual> getIndividuals() {
+        return individuals;
+    }
+
+    protected Individual getFittest() {
+        Individual fittest = individuals.getFirst();
+        for (int i = 0; i < individuals.size(); i++) {
+            if (fittest.getFitness() <= getIndividual(i).getFitness()) {
+                fittest = getIndividual(i);
+            }
+        }
+        return fittest;
+    }
+
+    private void createNewPopulation(int size) {
+        for (int i = 0; i < size; i++) {
+            Individual newIndividual = new Individual();
+            individuals.add(i, newIndividual);
+        }
+    }
+}
