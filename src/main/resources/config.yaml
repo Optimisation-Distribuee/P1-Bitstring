@@ -1,7 +1,9 @@
+seed: 42
 solution: "01001101"
 minGenomeLength: 5
 maxGenomeLength: 50
 maxGeneration: 100
+populationSize: 10
 selectionStrategy: "ROULETTE"
 mutationTargetStrategy: "BOTH"
 mutationRate: 0.05

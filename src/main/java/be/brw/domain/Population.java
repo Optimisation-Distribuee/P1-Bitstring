@@ -12,13 +12,13 @@ public class Population {
     private List<Individual> individuals;
 
     public Population(int size, int minGenomeLength, int maxGenomeLength, int seed){
-        this.initPopulation(size, minGenomeLength, maxGenomeLength);
         this.random = new Random(seed);
+        this.initPopulation(size, minGenomeLength, maxGenomeLength);
     }
 
-    public Population(int size, int defaultFatness, int seed){
-        this.initPopulation(size, defaultFatness);
+    public Population(int size, int defaultGenomeLength, int seed){
         this.random = new Random(seed);
+        this.initPopulation(size, defaultGenomeLength);
     }
 
     public int getGenomeLength(int index) {
@@ -46,13 +46,14 @@ public class Population {
         return allFitness;
     }
 
-    public void initPopulation(int size, int minGenomeLength, int maxGenomeLength) {
+    private void initPopulation(int size, int minGenomeLength, int maxGenomeLength) {
         this.individuals = new ArrayList<Individual>();
         for (int i = 0; i < size; i++) {
             int targetLength = random.nextInt(maxGenomeLength - minGenomeLength + 1) + minGenomeLength;
-            byte[] genome = new byte[targetLength];
+
+            List<Byte> genome = new ArrayList<>();
             for (int j = 0; j < targetLength; j++) {
-                genome[j] = (byte) random.nextInt(2);
+                genome.add((byte) random.nextInt(2));
             }
 
             Individual individual = new Individual(genome);
@@ -60,12 +61,12 @@ public class Population {
         }
     }
 
-    public void initPopulation(int size, int defaultGenomeLength){
+    private void initPopulation(int size, int defaultGenomeLength){
         this.individuals = new ArrayList<Individual>();
         for (int i = 0; i < size; i++) {
-            byte[] genome = new byte[defaultGenomeLength];
+            List<Byte> genome = new ArrayList<>();
             for (int j = 0; j < defaultGenomeLength; j++) {
-                genome[j] = (byte) random.nextInt(2);
+                genome.add((byte) random.nextInt(2));
             }
 
             Individual individual = new Individual(genome);

@@ -18,11 +18,13 @@ public class ConfigLoader {
         try (BufferedReader reader = Files.newBufferedReader(path)) {
             Map<String, Object> obj = yaml.load(reader);
 
+            int seed = Integer.parseInt(obj.get("seed").toString());
             byte[] solution = obj.get("solution").toString().getBytes();
 
-            int minGenomeLength = (Integer) obj.get("minGenomeLength");
-            int maxGenomeLength = (Integer) obj.get("maxGenomeLength");
-            int maxGeneration = (Integer) obj.get("maxGeneration");
+            int minGenomeLength = Integer.parseInt(obj.get("minGenomeLength").toString());
+            int maxGenomeLength = Integer.parseInt(obj.get("maxGenomeLength").toString());
+            int maxGeneration = Integer.parseInt(obj.get("maxGeneration").toString());
+            int populationSize = Integer.parseInt(obj.get("populationSize").toString());
 
             SelectionStrategy selectionStrategy = SelectionStrategy.valueOf(obj.get("selectionStrategy").toString());
             MutationTargetStrategy mutationTargetStrategy = MutationTargetStrategy.valueOf(obj.get("mutationTargetStrategy").toString());
@@ -37,10 +39,12 @@ public class ConfigLoader {
             CrossoverLeftoverStrategy crossoverLeftoverStrategy = CrossoverLeftoverStrategy.valueOf(obj.get("crossoverLeftoverStrategy").toString());
 
             return new GAConfig(
+                    seed,
                     solution,
                     minGenomeLength,
                     maxGenomeLength,
                     maxGeneration,
+                    populationSize,
                     selectionStrategy,
                     mutationTargetStrategy,
                     mutationRate,

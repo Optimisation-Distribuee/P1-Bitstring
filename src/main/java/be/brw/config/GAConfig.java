@@ -9,10 +9,13 @@ import java.util.Arrays;
 
 public class GAConfig {
 
+    private final int seed;
     private final byte[] solution;
     private final int minGenomeLength;
     private final int maxGenomeLength;
     private final int maxGeneration;
+
+    private final int populationSize;
 
     // Selection
     private final SelectionStrategy selectionStrategy;
@@ -31,11 +34,13 @@ public class GAConfig {
     // Leftover
     private final CrossoverLeftoverStrategy crossoverLeftoverStrategy;
 
-    public GAConfig(byte[] solution, int minGenomeLength, int maxGenomeLength, int maxGeneration, SelectionStrategy selectionStrategy, MutationTargetStrategy mutationTargetStrategy, double mutationRate, double bitFlipRate, double bitAddRate, double bitRemoveRate, CrossoverStrategy crossoverStrategy, double crossoverRate, CrossoverLeftoverStrategy crossoverLeftoverStrategy) {
+    public GAConfig(int seed, byte[] solution, int minGenomeLength, int maxGenomeLength, int maxGeneration, int populationSize, SelectionStrategy selectionStrategy, MutationTargetStrategy mutationTargetStrategy, double mutationRate, double bitFlipRate, double bitAddRate, double bitRemoveRate, CrossoverStrategy crossoverStrategy, double crossoverRate, CrossoverLeftoverStrategy crossoverLeftoverStrategy) {
+        this.seed = seed;
         this.solution = solution;
         this.minGenomeLength = minGenomeLength;
         this.maxGenomeLength = maxGenomeLength;
         this.maxGeneration = maxGeneration;
+        this.populationSize = populationSize;
         this.selectionStrategy = selectionStrategy;
         this.mutationTargetStrategy = mutationTargetStrategy;
         this.mutationRate = mutationRate;
@@ -45,6 +50,10 @@ public class GAConfig {
         this.crossoverStrategy = crossoverStrategy;
         this.crossoverRate = crossoverRate;
         this.crossoverLeftoverStrategy = crossoverLeftoverStrategy;
+    }
+
+    public int getSeed(){
+        return seed;
     }
 
     public byte[] getSolution() {
@@ -61,6 +70,10 @@ public class GAConfig {
 
     public int getMaxGeneration() {
         return maxGeneration;
+    }
+
+    public int getPopulationSize(){
+        return populationSize;
     }
 
     public SelectionStrategy getSelectionStrategy() {
@@ -102,10 +115,12 @@ public class GAConfig {
     @Override
     public String toString() {
         return "GAConfig{" +
-                "solution=" + Arrays.toString(solution) +
+                "seed=" + seed +
+                ", solution=" + Arrays.toString(solution) +
                 ", minGenomeLength=" + minGenomeLength +
                 ", maxGenomeLength=" + maxGenomeLength +
                 ", maxGeneration=" + maxGeneration +
+                ", populationSize=" + populationSize +
                 ", selectionStrategy=" + selectionStrategy +
                 ", mutationTargetStrategy=" + mutationTargetStrategy +
                 ", mutationRate=" + mutationRate +
