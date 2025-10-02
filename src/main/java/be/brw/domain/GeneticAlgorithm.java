@@ -1,5 +1,5 @@
 package be.brw.domain;
 
-public class Population {
+public class GeneticAlgorithm {
     // TODO
 }
