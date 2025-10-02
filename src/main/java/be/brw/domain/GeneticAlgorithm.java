@@ -1,5 +1,11 @@
 package be.brw.domain;
 
+import be.brw.config.GAConfig;
 public class GeneticAlgorithm {
-    // TODO
+
+    private final GAConfig config;
+
+    public GeneticAlgorithm(GAConfig configuration){
+        this.config = configuration;
+    }
 }

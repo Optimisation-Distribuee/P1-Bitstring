@@ -1,0 +1,13 @@
+solution: "01001101"
+minGenomeLength: 5
+maxGenomeLength: 50
+maxGeneration: 100
+selectionStrategy: "ROULETTE"
+mutationTargetStrategy: "BOTH"
+mutationRate: 0.05
+bitFlipRate: 0.02
+bitAddRate: 0.01
+bitRemoveRate: 0.01
+crossoverStrategy: "ONE_POINT"
+crossoverRate: 0.7
+crossoverLeftoverStrategy: "KEEP_ALL_OR_NOTHING_RANDOMLY"
