@@ -1,7 +1,7 @@
 package be.brw.domain;
 
 public class SimpleGeneticAlgorithm {
-
+    // This is bad, goodbye
     private static final double uniformRate = 0.5;
     private static final double mutationRate = 0.025;
     private static final int tournamentSize = 5;
