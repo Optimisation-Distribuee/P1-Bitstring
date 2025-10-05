@@ -21,6 +21,14 @@ public class Population {
         this.initPopulation(size, defaultGenomeLength);
     }
 
+    public Individual getIndividual(Integer key) {
+        return individuals.get(key);
+    }
+
+    public List<Individual> getIndividuals() {
+        return individuals;
+    }
+
     public int getGenomeLength(int index) {
         return this.individuals.get(index).getGenomeLength();
     }
@@ -32,7 +40,6 @@ public class Population {
         }
         return genomesLengths;
     }
-
 
     public int getFitness(int index, byte[] solution) {
         return this.individuals.get(index).getFitness(solution);

@@ -4,9 +4,10 @@ import be.brw.config.GAConfig;
 import be.brw.domain.strategy.CrossoverLeftoverStrategy;
 import be.brw.domain.strategy.CrossoverStrategy;
 import be.brw.domain.strategy.MutationStrategy;
+import be.brw.domain.strategy.SelectionStrategy;
 
-import java.util.List;
-import java.util.Random;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class GeneticAlgorithm {
 
@@ -69,7 +70,38 @@ public class GeneticAlgorithm {
         return individual;
     }
 
-    public List<Individual> selection(Population population) {
+    public List<Individual> selection(Population population, int selectionSize) {
+        SelectionStrategy selectionStrategy = config.getSelectionStrategy();
+
+        switch (selectionStrategy) {
+            case ELITISM:
+                // Select the fittest individuals
+                List<Integer> populationFitness = population.getAllFitness();
+                Map<Integer, Integer> indexFitnessMap = new HashMap<>();
+                for (int i = 0; i < populationFitness.size(); i++) {
+                    indexFitnessMap.put(i, populationFitness.get(i));
+                }
+                // https://stackoverflow.com/questions/62077736/how-to-get-the-3-highest-values-in-a-hashmap
+                List<Map.Entry<Integer, Integer>> elites = indexFitnessMap.entrySet()
+                        .stream()
+                        .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
+                        .limit(selectionSize)
+                        .collect(Collectors.toList());
+
+                List<Individual> selectedIndividuals = new ArrayList<>();
+                for (Map.Entry<Integer, Integer> entry : elites) {
+                    selectedIndividuals.add(population.getIndividual(entry.getKey()));
+                }
+
+                return selectedIndividuals;
+            case ROULETTE:
+                // Fitness-proportionate selection
+                break;
+            case TOURNAMENT:
+                // Select the fittest individuals from a random sample
+                int tournamentSize = config.getTournamentSize();
+                break;
+        }
         throw new UnsupportedOperationException("selection not implemented yet");
     }
 
