@@ -14,7 +14,8 @@ public class Main {
             System.out.println(config);
 
             GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(config);
-            geneticAlgorithm.runAlgorithm();
+            boolean status = geneticAlgorithm.runAlgorithm();
+            System.out.println(status);
 
         } catch (IOException e) {
             System.err.println(e.getMessage());

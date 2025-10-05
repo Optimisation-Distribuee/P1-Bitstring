@@ -14,13 +14,14 @@ public class GeneticAlgorithm {
     private final GAConfig config;
 
     private final Random random;
-    private Population population;
+    private final Population population;
 
     public GeneticAlgorithm(GAConfig configuration){
         this.config = configuration;
         this.random = new Random(config.getSeed());
 
         this.population = new Population(
+                config.getSolution(),
                 config.getPopulationSize(),
                 config.getMinGenomeLength(),
                 config.getMaxGenomeLength(),
