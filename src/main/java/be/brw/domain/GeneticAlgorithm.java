@@ -34,10 +34,13 @@ public class GeneticAlgorithm {
         int eliteCount = (int) Math.round(config.getPopulationSize() * (1.0 - config.getCrossoverRate()));
         for (int i = 0; i <= maxGeneration; i++){
             List<Individual> individuals = this.population.getIndividuals();
-            List<Integer> allFitness = this.population.getAllFitness();
-            if (allFitness.contains(config.getSolution().length)) {
-                System.out.println("Solution found in " + i + " generations");
-                return true;
+
+            for (Individual individual: individuals){
+                if(individual.getGenome().equals(this.config.getSolution())){
+                    System.out.println("Solution found in " + i + " generations");
+                    System.out.println(individual);
+                    return true;
+                }
             }
 
             List<Individual> survivors = selection(individuals, eliteCount);
@@ -198,6 +201,9 @@ public class GeneticAlgorithm {
                 individual.addGene(randomGene);
                 break;
             case REMOVE:
+                if(individual.getGenomeLength() == 1){
+                    break;
+                }
                 individual.removeGene(randomGeneIndex);
                 break;
             case FLIP:
@@ -232,6 +238,7 @@ public class GeneticAlgorithm {
                         rouletteSum += individual.getFitness();
                         if (rouletteSum >= pick) {
                             rouletteWinners.add(individual);
+                            break;
                         }
                     }
                 }

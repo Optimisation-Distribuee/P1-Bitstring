@@ -53,8 +53,9 @@ public class Individual implements Comparable<Individual>{
 
     @Override
     public String toString() {
-        return String.format("Individual fitness: %d", this.fitness);
+        return "Individual{" +
+                "genome=" + genome +
+                ", fitness=" + fitness +
+                '}';
     }
-
-
 }

@@ -5,7 +5,9 @@ import be.brw.domain.strategy.CrossoverStrategy;
 import be.brw.domain.strategy.MutationTargetStrategy;
 import be.brw.domain.strategy.SelectionStrategy;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class GAConfig {
 
@@ -58,7 +60,11 @@ public class GAConfig {
         return seed;
     }
 
-    public byte[] getSolution() {
+    public List<Byte> getSolution() {
+        List<Byte> solution = new ArrayList<>();
+        for(byte b : this.solution){
+            solution.add(b);
+        }
         return solution;
     }
 

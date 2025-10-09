@@ -10,6 +10,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class ConfigLoader {
@@ -19,7 +21,17 @@ public class ConfigLoader {
             Map<String, Object> obj = yaml.load(reader);
 
             int seed = Integer.parseInt(obj.get("seed").toString());
-            byte[] solution = obj.get("solution").toString().getBytes();
+            String solutionRaw = obj.get("solution").toString();
+
+            byte[] solution = new byte[solutionRaw.length()];
+            for(int i = 0; i < solutionRaw.length(); i++){
+                if(solutionRaw.charAt(i) == '0'){
+                    solution[i] = (byte) 0;
+                }
+                if(solutionRaw.charAt(i) == '1'){
+                    solution[i] = (byte) 1;
+                }
+            }
 
             int minGenomeLength = Integer.parseInt(obj.get("minGenomeLength").toString());
             int maxGenomeLength = Integer.parseInt(obj.get("maxGenomeLength").toString());

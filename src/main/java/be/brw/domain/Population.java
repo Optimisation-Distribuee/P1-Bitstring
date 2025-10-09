@@ -11,31 +11,35 @@ public class Population {
 
     private List<Individual> individuals;
 
-    public Population(byte[] solution, int size, int minGenomeLength, int maxGenomeLength, int seed){
+    public Population(List<Byte> solution, int size, int minGenomeLength, int maxGenomeLength, int seed){
         this.random = new Random(seed);
         this.initPopulation(size, minGenomeLength, maxGenomeLength);
         this.updateFitness(solution);
     }
 
-    public Population(byte[] solution, int size, int defaultGenomeLength, int seed){
+    public Population(List<Byte> solution, int size, int defaultGenomeLength, int seed){
         this.random = new Random(seed);
         this.initPopulation(size, defaultGenomeLength);
         this.updateFitness(solution);
     }
 
-    public Population(byte[] solution, List<Individual> individuals, int seed){
+    public Population(List<Byte> solution, List<Individual> individuals, int seed){
         this.random = new Random(seed);
         this.individuals = individuals;
         this.updateFitness(solution);
     }
 
-    public void updateFitness(byte[] solution) {
-        for(Individual individual : this.individuals){
+    public void updateFitness(List<Byte> solution) {
+        for (Individual individual : this.individuals) {
             List<Byte> genome = individual.getGenome();
 
             int fitness = 0;
-            for(byte b : solution){
-                if(b !=  genome.get(0)){
+            for (int i = 0; i < solution.size(); i++) {
+                if (i >= genome.size()){
+                    break;
+                }
+
+                if (solution.get(i).equals(genome.get(i))) {
                     fitness++;
                 }
             }
@@ -43,40 +47,20 @@ public class Population {
         }
     }
 
-    public Individual getIndividual(Integer key) {
-        return individuals.get(key);
-    }
-
     public List<Individual> getIndividuals() {
         return individuals;
     }
 
-    public int getGenomeLength(int index) {
-        return this.individuals.get(index).getGenomeLength();
-    }
-
-    public List<Integer> getGenomeLengths(){
-        List<Integer> genomesLengths = new ArrayList<Integer>();
-        for (Individual individual : this.individuals) {
-            genomesLengths.add(individual.getGenomeLength());
-        }
-        return genomesLengths;
-    }
-
-    public int getFitness(int index) {
-        return this.individuals.get(index).getFitness();
-    }
-
     public List<Integer> getAllFitness(){
-        List<Integer> allFitness = new ArrayList<Integer>();
+        List<Integer> allFitness = new ArrayList<>();
         for (Individual individual : this.individuals) {
-            allFitness.add(individual.getGenomeLength());
+            allFitness.add(individual.getFitness());
         }
         return allFitness;
     }
 
     private void initPopulation(int size, int minGenomeLength, int maxGenomeLength) {
-        this.individuals = new ArrayList<Individual>();
+        this.individuals = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             int targetLength = random.nextInt(maxGenomeLength - minGenomeLength + 1) + minGenomeLength;
 
@@ -87,7 +71,7 @@ public class Population {
     }
 
     private void initPopulation(int size, int defaultGenomeLength){
-        this.individuals = new ArrayList<Individual>();
+        this.individuals = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             List<Byte> genome = this.generateRandomGenome(defaultGenomeLength);
             Individual individual = new Individual(genome);
