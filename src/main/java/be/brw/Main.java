@@ -4,7 +4,6 @@ import be.brw.config.ConfigLoader;
 import be.brw.config.GAConfig;
 import be.brw.domain.GeneticAlgorithm;
 import be.brw.domain.Individual;
-import be.brw.domain.Population;
 
 import java.io.IOException;
 import java.nio.file.Path;

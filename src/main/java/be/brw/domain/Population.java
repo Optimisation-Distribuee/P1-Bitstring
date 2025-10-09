@@ -51,14 +51,6 @@ public class Population {
         return individuals;
     }
 
-    public List<Integer> getAllFitness(){
-        List<Integer> allFitness = new ArrayList<>();
-        for (Individual individual : this.individuals) {
-            allFitness.add(individual.getFitness());
-        }
-        return allFitness;
-    }
-
     private void initPopulation(int size, int minGenomeLength, int maxGenomeLength) {
         this.individuals = new ArrayList<>();
         for (int i = 0; i < size; i++) {

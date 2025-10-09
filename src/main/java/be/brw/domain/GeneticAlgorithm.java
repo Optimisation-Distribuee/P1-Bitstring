@@ -75,7 +75,7 @@ public class GeneticAlgorithm {
         CrossoverLeftoverStrategy crossoverLeftoverStrategy = config.getCrossoverLeftoverStrategy();
 
         List<Byte> newGenome = new ArrayList<>();
-        List<Byte> leftovers = new ArrayList<>();
+        List<Byte> leftovers;
 
         int len1 = individual1.getGenomeLength();
         int len2 = individual2.getGenomeLength();
