@@ -2,7 +2,7 @@ package be.brw.domain;
 
 import java.util.List;
 
-public class Individual {
+public class Individual implements Comparable<Individual>{
 
     private final List<Byte> genome;
     private int fitness;
@@ -45,10 +45,15 @@ public class Individual {
         genome.remove(index);
     }
 
+
+    @Override
+    public int compareTo(Individual other) {
+        return other.fitness - this.fitness;
+    }
+
     @Override
     public String toString() {
-        int length = this.getGenomeLength();
-        return String.format("Individual fitness: %d", length);
+        return String.format("Individual fitness: %d", this.fitness);
     }
 
 

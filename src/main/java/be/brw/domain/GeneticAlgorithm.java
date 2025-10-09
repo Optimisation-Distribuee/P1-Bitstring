@@ -1,20 +1,19 @@
 package be.brw.domain;
 
 import be.brw.config.GAConfig;
-import be.brw.domain.strategy.CrossoverLeftoverStrategy;
-import be.brw.domain.strategy.CrossoverStrategy;
-import be.brw.domain.strategy.MutationStrategy;
-import be.brw.domain.strategy.SelectionStrategy;
+import be.brw.domain.strategy.*;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 public class GeneticAlgorithm {
 
     private final GAConfig config;
 
     private final Random random;
-    private final Population population;
+    private Population population;
 
     public GeneticAlgorithm(GAConfig configuration){
         this.config = configuration;
@@ -31,13 +30,41 @@ public class GeneticAlgorithm {
 
     public boolean runAlgorithm() {
         int maxGeneration = config.getMaxGeneration();
+        MutationTargetStrategy mutTarget = config.getMutationTargetStrategy();
+        int eliteCount = (int) Math.round(config.getPopulationSize() * (1.0 - config.getCrossoverRate()));
         for (int i = 0; i <= maxGeneration; i++){
-            List<Integer> allFitness = population.getAllFitness();
+            List<Individual> individuals = this.population.getIndividuals();
+            List<Integer> allFitness = this.population.getAllFitness();
             if (allFitness.contains(config.getSolution().length)) {
                 System.out.println("Solution found in " + i + " generations");
                 return true;
             }
 
+            List<Individual> survivors = selection(individuals, eliteCount);
+
+            if (mutTarget == MutationTargetStrategy.PARENTS || mutTarget == MutationTargetStrategy.BOTH) {
+                for (int j = 0; j < survivors.size(); j++) {
+                    if (random.nextDouble() < config.getMutationRate()) {
+                        survivors.set(j, mutate(survivors.get(j)));
+                    }
+                }
+            }
+
+            List<Individual> children = new ArrayList<>(config.getPopulationSize() - eliteCount);
+            while (eliteCount + children.size() < config.getPopulationSize()) {
+                List<Individual> parents = selection(survivors, 2);
+                Individual child = crossover(parents.getFirst(), parents.getLast());
+
+                if (mutTarget == MutationTargetStrategy.PARENTS || mutTarget == MutationTargetStrategy.BOTH) {
+                    if (random.nextDouble() < config.getMutationRate()) {
+                        mutate(child);
+                    }
+                }
+
+                children.add(child);
+            }
+
+            this.population = new Population(config.getSolution(), survivors, config.getSeed());
         }
         System.out.println("No solution found in " + maxGeneration + " generations");
         return false;
@@ -47,7 +74,117 @@ public class GeneticAlgorithm {
         CrossoverStrategy crossoverStrategy = config.getCrossoverStrategy();
         CrossoverLeftoverStrategy crossoverLeftoverStrategy = config.getCrossoverLeftoverStrategy();
 
-        throw new UnsupportedOperationException("crossover not implemented yet");
+        List<Byte> newGenome = new ArrayList<>();
+        List<Byte> leftovers = new ArrayList<>();
+
+        int len1 = individual1.getGenomeLength();
+        int len2 = individual2.getGenomeLength();
+        int minLength = Math.min(len1, len2);
+        int maxLength = Math.max(len1, len2);
+
+        List<Byte> firstGenome = individual1.getGenome();
+        List<Byte> secondGenome = individual2.getGenome();
+
+        int cutPointFirst, cutPointSecond;
+        List<Byte> firstPart, secondPart, thirdPart, childGenome;
+        switch(crossoverStrategy){
+            case ONE_POINT:
+                cutPointFirst = this.random.nextInt(minLength - 1);
+
+                firstPart  = firstGenome.subList(0, cutPointFirst);
+                secondPart = secondGenome.subList(cutPointFirst, len2);
+
+                childGenome = new ArrayList<>();
+                childGenome.addAll(firstPart);
+                childGenome.addAll(secondPart);
+
+                return new Individual(childGenome);
+            case TWO_POINT:
+                cutPointFirst = this.random.nextInt(minLength - 1);
+                cutPointSecond = this.random.nextInt(cutPointFirst + 1, maxLength - 1);
+
+                firstPart  = individual1.getGenome().subList(0, cutPointFirst);
+                secondPart = individual2.getGenome().subList(cutPointFirst, cutPointSecond);
+                thirdPart = individual1.getGenome().subList(cutPointSecond, len2);
+
+                childGenome = new ArrayList<>();
+                childGenome.addAll(firstPart);
+                childGenome.addAll(secondPart);
+                childGenome.addAll(thirdPart);
+
+                return new Individual(childGenome);
+            case UNIFORM:
+                int pickA = minLength / 2;
+                int pickB = minLength / 2;
+
+                boolean choice = random.nextBoolean();
+                if(choice){
+                    pickA += minLength % 2;
+                }else{
+                    pickB += minLength % 2;
+                }
+
+                int cursor = 0;
+                while(pickA + pickB > 0){
+                    choice = random.nextBoolean();
+                    if(choice && pickA > 0){
+                        newGenome.add(firstGenome.get(cursor));
+                        pickA--;
+                        cursor++;
+                        continue;
+                    }
+
+                    if(!choice && pickB > 0){
+                        newGenome.add(secondGenome.get(cursor));
+                        pickB--;
+                        cursor++;
+                    }
+                }
+
+                leftovers = (firstGenome.size() > secondGenome.size())
+                        ? firstGenome.subList(minLength, firstGenome.size())
+                        : secondGenome.subList(minLength, secondGenome.size());
+                break;
+            case ARITHMETIC:
+                for(int i = 0; i < minLength; i++){
+                    byte geneA = firstGenome.get(i);
+                    byte geneB = secondGenome.get(i);
+
+                    newGenome.add((byte) ((int)geneA ^ (int)geneB));
+                }
+
+                leftovers = (firstGenome.size() > secondGenome.size())
+                        ? firstGenome.subList(minLength, firstGenome.size())
+                        : secondGenome.subList(minLength, secondGenome.size());
+
+                break;
+        }
+
+        if(!leftovers.isEmpty()) {
+            switch (crossoverLeftoverStrategy) {
+                case KEEP_ALL_OR_NOTHING_RANDOMLY:
+                    if(random.nextBoolean()){
+                        newGenome.addAll(leftovers);
+                    }
+                    break;
+                case KEEP_ONE_OR_NOT_RANDOMLY:
+                    for(byte leftover: leftovers){
+                        if(random.nextBoolean()){
+                            newGenome.add(leftover);
+                        }
+                    }
+                    break;
+                case KEEP_ONLY_FROM_FITTEST_PARENT:
+                    if(individual1.getFitness() >= individual2.getFitness()){
+                        newGenome.addAll(firstGenome.subList(minLength, firstGenome.size()));
+                    }else{
+                        newGenome.addAll(secondGenome.subList(minLength, secondGenome.size()));
+                    }
+                    break;
+            }
+        }
+
+        return new Individual(newGenome);
     }
 
     private Individual mutate(Individual individual){
@@ -71,42 +208,44 @@ public class GeneticAlgorithm {
         return individual;
     }
 
-    public List<Individual> selection(Population population, int selectionSize) {
+    public List<Individual> selection(List<Individual> individuals, int selectionSize) {
         SelectionStrategy selectionStrategy = config.getSelectionStrategy();
-
         switch (selectionStrategy) {
             case ELITISM:
                 // Select the fittest individuals
-                List<Integer> populationFitness = population.getAllFitness();
-                Map<Integer, Integer> indexFitnessMap = new HashMap<>();
-                for (int i = 0; i < populationFitness.size(); i++) {
-                    indexFitnessMap.put(i, populationFitness.get(i));
-                }
-                // https://stackoverflow.com/questions/62077736/how-to-get-the-3-highest-values-in-a-hashmap
-                List<Map.Entry<Integer, Integer>> elites = indexFitnessMap.entrySet()
-                        .stream()
-                        .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
-                        .limit(selectionSize)
-                        .collect(Collectors.toList());
-
-                List<Individual> selectedIndividuals = new ArrayList<>();
-                for (Map.Entry<Integer, Integer> entry : elites) {
-                    selectedIndividuals.add(population.getIndividual(entry.getKey()));
-                }
-
-                return selectedIndividuals;
+                Collections.sort(individuals);
+                return individuals.subList(0,selectionSize);
             case ROULETTE:
                 // Fitness-proportionate selection
-                break;
+                List<Individual> rouletteWinners = new ArrayList<>(selectionSize);
+
+                int totalFitness = 0;
+                for (int fitness: this.population.getAllFitness()) {
+                    totalFitness += fitness;
+                }
+
+                for (int i = 0; i < selectionSize; i++) {
+                    int pick = this.random.nextInt(totalFitness);
+
+                    int rouletteSum = 0;
+                    for (Individual individual : individuals) {
+                        rouletteSum += individual.getFitness();
+                        if (rouletteSum >= pick) {
+                            rouletteWinners.add(individual);
+                        }
+                    }
+                }
+                return rouletteWinners;
             case TOURNAMENT:
                 // Select the fittest individuals from a random sample
                 int tournamentSize = config.getTournamentSize();
-                break;
+                List<Individual> tournamentWinners = new ArrayList<>(selectionSize);
+                for (int i = 0; i < selectionSize; i++) {
+                    Collections.shuffle(individuals);
+                    tournamentWinners.addAll(individuals.subList(0, tournamentSize));
+                }
+                return tournamentWinners;
         }
-        throw new UnsupportedOperationException("selection not implemented yet");
-    }
-
-    public Population evolve(Population population){
-        throw new UnsupportedOperationException("evolve not implemented yet");
+        throw new UnsupportedOperationException("selectionStrategy was not ELITISM, ROULETTE or TOURNAMENT");
     }
 }

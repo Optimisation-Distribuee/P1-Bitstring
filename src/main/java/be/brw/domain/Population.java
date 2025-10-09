@@ -23,6 +23,12 @@ public class Population {
         this.updateFitness(solution);
     }
 
+    public Population(byte[] solution, List<Individual> individuals, int seed){
+        this.random = new Random(seed);
+        this.individuals = individuals;
+        this.updateFitness(solution);
+    }
+
     public void updateFitness(byte[] solution) {
         for(Individual individual : this.individuals){
             List<Byte> genome = individual.getGenome();
