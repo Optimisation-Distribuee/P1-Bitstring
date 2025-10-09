@@ -33,6 +33,11 @@ public class GeneticAlgorithm {
         MutationTargetStrategy mutTarget = config.getMutationTargetStrategy();
         int eliteCount = (int) Math.round(config.getPopulationSize() * (1.0 - config.getCrossoverRate()));
         for (int i = 0; i <= maxGeneration; i++){
+            if(i == 2232){
+                System.out.println("speed");
+            }
+
+            System.out.println("Generation count " + i);
             List<Individual> individuals = this.population.getIndividuals();
 
             for (Individual individual: individuals){
@@ -57,7 +62,6 @@ public class GeneticAlgorithm {
             while (eliteCount + children.size() < config.getPopulationSize()) {
                 List<Individual> parents = selection(survivors, 2);
                 Individual child = crossover(parents.getFirst(), parents.getLast());
-
                 if (mutTarget == MutationTargetStrategy.PARENTS || mutTarget == MutationTargetStrategy.BOTH) {
                     if (random.nextDouble() < config.getMutationRate()) {
                         mutate(child);
@@ -66,7 +70,7 @@ public class GeneticAlgorithm {
 
                 children.add(child);
             }
-
+            survivors.addAll(children);
             this.population = new Population(config.getSolution(), survivors, config.getSeed());
         }
         System.out.println("No solution found in " + maxGeneration + " generations");
@@ -82,6 +86,15 @@ public class GeneticAlgorithm {
 
         int len1 = individual1.getGenomeLength();
         int len2 = individual2.getGenomeLength();
+
+        if(len1 == 1 || len2 == 1){
+            if(individual1.getFitness() > individual2.getFitness()){
+                return individual1;
+            }else{
+                return individual2;
+            }
+        }
+
         int minLength = Math.min(len1, len2);
         int maxLength = Math.max(len1, len2);
 
@@ -226,8 +239,8 @@ public class GeneticAlgorithm {
                 List<Individual> rouletteWinners = new ArrayList<>(selectionSize);
 
                 int totalFitness = 0;
-                for (int fitness: this.population.getAllFitness()) {
-                    totalFitness += fitness;
+                for (Individual i: individuals) {
+                    totalFitness += i.getFitness();
                 }
 
                 for (int i = 0; i < selectionSize; i++) {
@@ -248,7 +261,7 @@ public class GeneticAlgorithm {
                 int tournamentSize = config.getTournamentSize();
                 List<Individual> tournamentWinners = new ArrayList<>(selectionSize);
                 for (int i = 0; i < selectionSize; i++) {
-                    Collections.shuffle(individuals);
+                    Collections.shuffle(individuals, random);
                     tournamentWinners.addAll(individuals.subList(0, tournamentSize));
                 }
                 return tournamentWinners;

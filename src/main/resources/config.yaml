@@ -1,16 +1,24 @@
 seed: 42
 solution: "01001101"
 minGenomeLength: 5
-maxGenomeLength: 50
-maxGeneration: 100
-populationSize: 10
-selectionStrategy: "ROULETTE"
-tournamentSize: 4
+maxGenomeLength: 10
+maxGeneration: 100000
+populationSize: 100
+
+# ELITISM , ROULETTE , TOURNAMENT
+selectionStrategy: "TOURNAMENT"
+tournamentSize: 6
+
+# PARENTS , CHILDREN , BOTH
 mutationTargetStrategy: "BOTH"
 mutationRate: 0.05
 bitFlipRate: 0.02
 bitAddRate: 0.01
 bitRemoveRate: 0.01
+
+# ONE_POINT , TWO_POINT , UNIFORM , ARITHMETIC
 crossoverStrategy: "ONE_POINT"
 crossoverRate: 0.7
+
+# KEEP_ALL_OR_NOTHING_RANDOMLY , KEEP_ONE_OR_NOT_RANDOMLY , KEEP_ONLY_FROM_FITTEST_PARENT
 crossoverLeftoverStrategy: "KEEP_ALL_OR_NOTHING_RANDOMLY"

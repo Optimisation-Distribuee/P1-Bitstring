@@ -5,20 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6196eed9-dc22-4e0c-8b30-37f12495a1f0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deviceManager.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yaml" afterDir="false" />
+    </list>
+    <list id="99df0dcf-75e5-4eda-b311-0dcecc5bce87" name="Changes by abrumsen" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/be/brw/domain/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/brw/domain/GeneticAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/be/brw/domain/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/brw/domain/Individual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/be/brw/domain/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/brw/domain/Population.java" afterDir="false" />
     </list>
     <list id="dcb33580-bfae-4e7b-b436-a4f6a472f31f" name="Changes by Axel" comment="" />
     <list id="e190b328-7144-4a14-9e57-88486a1ec68f" name="Changes by Fred" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/be/brw/config/ConfigLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/brw/config/ConfigLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/be/brw/config/GAConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/brw/config/GAConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/be/brw/domain/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/brw/domain/Population.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/brw/domain/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/brw/domain/GeneticAlgorithm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,19 +24,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/be/brw/domain/Population.java">
+    <file path="$PROJECT_DIR$/src/main/java/be/brw/domain/GeneticAlgorithm.java">
       <ranges>
-        <range start1="13" end1="14" start2="13" end2="14" changelist="e190b328-7144-4a14-9e57-88486a1ec68f" />
-        <range start1="19" end1="20" start2="19" end2="20" changelist="e190b328-7144-4a14-9e57-88486a1ec68f" />
-        <range start1="25" end1="26" start2="25" end2="26" changelist="e190b328-7144-4a14-9e57-88486a1ec68f" />
-        <range start1="31" end1="33" start2="31" end2="33" changelist="e190b328-7144-4a14-9e57-88486a1ec68f" />
-        <range start1="36" end1="38" start2="36" end2="42" changelist="6196eed9-dc22-4e0c-8b30-37f12495a1f0" />
-        <range start1="45" end1="49" start2="49" end2="49" changelist="e190b328-7144-4a14-9e57-88486a1ec68f" />
-        <range start1="53" end1="69" start2="53" end2="53" changelist="6196eed9-dc22-4e0c-8b30-37f12495a1f0" />
-        <range start1="70" end1="71" start2="54" end2="55" changelist="6196eed9-dc22-4e0c-8b30-37f12495a1f0" />
-        <range start1="72" end1="73" start2="56" end2="57" changelist="6196eed9-dc22-4e0c-8b30-37f12495a1f0" />
-        <range start1="78" end1="79" start2="62" end2="63" changelist="6196eed9-dc22-4e0c-8b30-37f12495a1f0" />
-        <range start1="89" end1="90" start2="73" end2="74" changelist="6196eed9-dc22-4e0c-8b30-37f12495a1f0" />
+        <range start1="35" end1="35" start2="35" end2="40" changelist="e190b328-7144-4a14-9e57-88486a1ec68f" />
+        <range start1="59" end1="60" start2="64" end2="64" changelist="99df0dcf-75e5-4eda-b311-0dcecc5bce87" />
+        <range start1="68" end1="69" start2="72" end2="73" changelist="99df0dcf-75e5-4eda-b311-0dcecc5bce87" />
+        <range start1="84" end1="84" start2="88" end2="97" changelist="e190b328-7144-4a14-9e57-88486a1ec68f" />
+        <range start1="228" end1="230" start2="241" end2="243" changelist="99df0dcf-75e5-4eda-b311-0dcecc5bce87" />
+        <range start1="250" end1="251" start2="263" end2="264" changelist="e190b328-7144-4a14-9e57-88486a1ec68f" />
       </ranges>
     </file>
   </component>
@@ -57,25 +47,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "show.migrate.to.gradle.popup": "false",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="be.brw.Main" />
@@ -128,23 +118,8 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/be/brw/domain/GeneticAlgorithm.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/be/brw/domain/GeneticAlgorithm.java</url>
-          <line>225</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/be/brw/domain/GeneticAlgorithm.java</url>
-          <line>232</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/be/brw/domain/GeneticAlgorithm.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="28" />
+          <line>73</line>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
