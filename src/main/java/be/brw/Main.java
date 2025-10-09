@@ -3,6 +3,8 @@ package be.brw;
 import be.brw.config.ConfigLoader;
 import be.brw.config.GAConfig;
 import be.brw.domain.GeneticAlgorithm;
+import be.brw.domain.Individual;
+import be.brw.domain.Population;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -11,11 +13,11 @@ public class Main {
     public static void main(String[] args) {
         try {
             GAConfig config = ConfigLoader.fromYaml(Path.of("src/main/resources/config.yaml"));
-            System.out.println(config);
+            // System.out.println(config);
 
             GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(config);
-            boolean status = geneticAlgorithm.runAlgorithm();
-            System.out.println(status);
+            Individual individual = geneticAlgorithm.runAlgorithm();
+            System.out.println(individual);
 
         } catch (IOException e) {
             System.err.println(e.getMessage());

@@ -86,4 +86,21 @@ public class Population {
         }
         return genome;
     }
+
+    @Override
+    public String toString() {
+        return "Population{" +
+                "individuals=" + individuals +
+                '}';
+    }
+
+    public Individual getFittest() {
+        Individual best = this.individuals.getFirst();
+        for(Individual individual : this.individuals){
+            if(individual.getFitness() > best.getFitness()){
+                best = individual;
+            }
+        }
+        return best;
+    }
 }

@@ -11,7 +11,6 @@ import java.util.Random;
 public class GeneticAlgorithm {
 
     private final GAConfig config;
-
     private final Random random;
     private Population population;
 
@@ -28,23 +27,17 @@ public class GeneticAlgorithm {
         );
     }
 
-    public boolean runAlgorithm() {
+    public Individual runAlgorithm() {
         int maxGeneration = config.getMaxGeneration();
         MutationTargetStrategy mutTarget = config.getMutationTargetStrategy();
         int eliteCount = (int) Math.round(config.getPopulationSize() * (1.0 - config.getCrossoverRate()));
         for (int i = 0; i <= maxGeneration; i++){
-            if(i == 2232){
-                System.out.println("speed");
-            }
-
-            System.out.println("Generation count " + i);
             List<Individual> individuals = this.population.getIndividuals();
 
             for (Individual individual: individuals){
                 if(individual.getGenome().equals(this.config.getSolution())){
                     System.out.println("Solution found in " + i + " generations");
-                    System.out.println(individual);
-                    return true;
+                    return this.population.getFittest();
                 }
             }
 
@@ -74,7 +67,7 @@ public class GeneticAlgorithm {
             this.population = new Population(config.getSolution(), survivors, config.getSeed());
         }
         System.out.println("No solution found in " + maxGeneration + " generations");
-        return false;
+        return this.population.getFittest();
     }
 
     private Individual crossover(Individual individual1, Individual individual2){
@@ -174,6 +167,8 @@ public class GeneticAlgorithm {
                         : secondGenome.subList(minLength, secondGenome.size());
 
                 break;
+            default:
+                throw new UnsupportedOperationException("crossoverStrategy was not ONE_POINT, TWO_POINT, UNIFORM, ARITHMETIC");
         }
 
         if(!leftovers.isEmpty()) {
@@ -197,9 +192,10 @@ public class GeneticAlgorithm {
                         newGenome.addAll(secondGenome.subList(minLength, secondGenome.size()));
                     }
                     break;
+                default:
+                    throw new UnsupportedOperationException("crossoverLeftoverStrategy was not KEEP_ALL_OR_NOTHING_RANDOMLY, KEEP_ONE_OR_NOT_RANDOMLY or KEEP_ONLY_FROM_FITTEST_PARENT");
             }
         }
-
         return new Individual(newGenome);
     }
 
@@ -209,19 +205,37 @@ public class GeneticAlgorithm {
         int randomGeneIndex = random.nextInt(individual.getGenomeLength());
         Byte randomGene = (byte) random.nextInt(2);
 
+        boolean shouldMutate;
         switch(randomMutationStrategy){
             case ADD:
+                shouldMutate = random.nextDouble() <= this.config.getBitAddRate();
+                if(!shouldMutate){
+                    break;
+                }
+
                 individual.addGene(randomGene);
                 break;
             case REMOVE:
+                shouldMutate = random.nextDouble() <= this.config.getBitRemoveRate();
+                if(!shouldMutate){
+                    break;
+                }
+
                 if(individual.getGenomeLength() == 1){
                     break;
                 }
                 individual.removeGene(randomGeneIndex);
                 break;
             case FLIP:
+                shouldMutate = random.nextDouble() <= this.config.getBitFlipRate();
+                if(!shouldMutate){
+                    break;
+                }
+
                 individual.setGene(randomGeneIndex, randomGene);
                 break;
+            default:
+                throw new UnsupportedOperationException("MutationStrategy was not ADD, REMOVE or FLIP");
         }
 
         return individual;
