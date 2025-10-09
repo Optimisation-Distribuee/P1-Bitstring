@@ -19,6 +19,7 @@ public class GAConfig {
 
     // Selection
     private final SelectionStrategy selectionStrategy;
+    private final int tournamentSize;
 
     // Mutation
     private final MutationTargetStrategy mutationTargetStrategy;
@@ -34,7 +35,7 @@ public class GAConfig {
     // Leftover
     private final CrossoverLeftoverStrategy crossoverLeftoverStrategy;
 
-    public GAConfig(int seed, byte[] solution, int minGenomeLength, int maxGenomeLength, int maxGeneration, int populationSize, SelectionStrategy selectionStrategy, MutationTargetStrategy mutationTargetStrategy, double mutationRate, double bitFlipRate, double bitAddRate, double bitRemoveRate, CrossoverStrategy crossoverStrategy, double crossoverRate, CrossoverLeftoverStrategy crossoverLeftoverStrategy) {
+    public GAConfig(int seed, byte[] solution, int minGenomeLength, int maxGenomeLength, int maxGeneration, int populationSize, SelectionStrategy selectionStrategy, int tournamentSize, MutationTargetStrategy mutationTargetStrategy, double mutationRate, double bitFlipRate, double bitAddRate, double bitRemoveRate, CrossoverStrategy crossoverStrategy, double crossoverRate, CrossoverLeftoverStrategy crossoverLeftoverStrategy) {
         this.seed = seed;
         this.solution = solution;
         this.minGenomeLength = minGenomeLength;
@@ -42,6 +43,7 @@ public class GAConfig {
         this.maxGeneration = maxGeneration;
         this.populationSize = populationSize;
         this.selectionStrategy = selectionStrategy;
+        this.tournamentSize =  tournamentSize;
         this.mutationTargetStrategy = mutationTargetStrategy;
         this.mutationRate = mutationRate;
         this.bitFlipRate = bitFlipRate;
@@ -79,6 +81,8 @@ public class GAConfig {
     public SelectionStrategy getSelectionStrategy() {
         return selectionStrategy;
     }
+
+    public int getTournamentSize() { return tournamentSize; }
 
     public MutationTargetStrategy getMutationTargetStrategy() {
         return mutationTargetStrategy;
@@ -122,6 +126,7 @@ public class GAConfig {
                 ", maxGeneration=" + maxGeneration +
                 ", populationSize=" + populationSize +
                 ", selectionStrategy=" + selectionStrategy +
+                ", tournamentSize=" + tournamentSize +
                 ", mutationTargetStrategy=" + mutationTargetStrategy +
                 ", mutationRate=" + mutationRate +
                 ", bitFlipRate=" + bitFlipRate +

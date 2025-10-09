@@ -5,19 +5,28 @@ import java.util.List;
 public class Individual {
 
     private final List<Byte> genome;
+    private int fitness;
+
+    public Individual(List<Byte> genome, int fitness) {
+        this.genome = genome;
+        this.fitness = fitness;
+    }
 
     public Individual(List<Byte> genome){
         this.genome = genome;
+        this.fitness = 0;
     }
 
-    public int getFitness(byte[] solution) {
-        int fitness = 0;
-        for(byte b : solution){
-            if(b !=  genome.get(0)){
-                fitness++;
-            }
-        }
-        return fitness;
+    public void setFitness(int fitness) {
+        this.fitness = fitness;
+    }
+
+    public int getFitness() {
+        return this.fitness;
+    }
+
+    public List<Byte> getGenome() {
+        return this.genome;
     }
 
     public int getGenomeLength() {
@@ -41,4 +50,6 @@ public class Individual {
         int length = this.getGenomeLength();
         return String.format("Individual fitness: %d", length);
     }
+
+
 }

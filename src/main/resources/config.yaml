@@ -5,6 +5,7 @@ maxGenomeLength: 50
 maxGeneration: 100
 populationSize: 10
 selectionStrategy: "ROULETTE"
+tournamentSize: 4
 mutationTargetStrategy: "BOTH"
 mutationRate: 0.05
 bitFlipRate: 0.02

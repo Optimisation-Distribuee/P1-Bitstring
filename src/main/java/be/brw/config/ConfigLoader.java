@@ -27,6 +27,10 @@ public class ConfigLoader {
             int populationSize = Integer.parseInt(obj.get("populationSize").toString());
 
             SelectionStrategy selectionStrategy = SelectionStrategy.valueOf(obj.get("selectionStrategy").toString());
+            int tournamentSize = -1;
+            if (selectionStrategy == SelectionStrategy.TOURNAMENT) {
+                tournamentSize = Integer.parseInt(obj.get("tournamentSize").toString());
+            }
             MutationTargetStrategy mutationTargetStrategy = MutationTargetStrategy.valueOf(obj.get("mutationTargetStrategy").toString());
 
             double mutationRate = Double.parseDouble(obj.get("mutationRate").toString());
@@ -46,6 +50,7 @@ public class ConfigLoader {
                     maxGeneration,
                     populationSize,
                     selectionStrategy,
+                    tournamentSize,
                     mutationTargetStrategy,
                     mutationRate,
                     bitFlipRate,
