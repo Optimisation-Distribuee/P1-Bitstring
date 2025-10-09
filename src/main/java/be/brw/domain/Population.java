@@ -75,9 +75,9 @@ public class Population {
     /**
      * Calculates and updates the fitness for every individual in the population.
      * <p>
-     * Fitness is defined as the number of matching bits (genes) at the same position
-     * between an individual's genome and the target solution. The comparison stops
-     * if the individual's genome is shorter than the solution.
+     * Fitness is calculated by counting the number of matching genes at the same position
+     * and then penalizing the score based on the difference in length between the
+     * individual's genome and the target solution.
      * </p>
      *
      * @param solution The target bitstring to compare against.
@@ -86,16 +86,22 @@ public class Population {
         for (Individual individual : this.individuals) {
             List<Byte> genome = individual.getGenome();
 
-            int fitness = 0;
+            int matchingGenes = 0;
             // Determine the comparison length to avoid IndexOutOfBoundsException
             int comparisonLength = Math.min(solution.size(), genome.size());
 
             for (int i = 0; i < comparisonLength; i++) {
                 if (solution.get(i).equals(genome.get(i))) {
-                    fitness++;
+                    matchingGenes++;
                 }
             }
-            individual.setFitness(fitness);
+
+            // Calculate the penalty for length difference.
+            // TODO: determine how we want to do this
+            int lengthDifference = Math.abs(genome.size() - solution.size());
+            int finalFitness = matchingGenes - lengthDifference;
+
+            individual.setFitness(finalFitness);
         }
     }
 
