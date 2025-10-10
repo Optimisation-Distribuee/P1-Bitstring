@@ -96,12 +96,13 @@ public class Population {
                 }
             }
 
+            individual.setFitness(matchingGenes);
+
             // Calculate the penalty for length difference.
             // TODO: determine how we want to do this
-            int lengthDifference = Math.abs(genome.size() - solution.size());
-            int finalFitness = matchingGenes - lengthDifference;
-
-            individual.setFitness(finalFitness);
+            // int lengthDifference = Math.abs(genome.size() - solution.size());
+            // int finalFitness = matchingGenes - lengthDifference;
+            // individual.setFitness(finalFitness);
         }
     }
 

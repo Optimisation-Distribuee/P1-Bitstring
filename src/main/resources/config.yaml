@@ -3,21 +3,21 @@ solution: "01001101"
 minGenomeLength: 5
 maxGenomeLength: 10
 maxGeneration: 100000
-populationSize: 100
+populationSize: 200
 
 # ELITISM , ROULETTE , TOURNAMENT
-selectionStrategy: "TOURNAMENT"
+selectionStrategy: "ELITISM"
 tournamentSize: 6
 
 # PARENTS , CHILDREN , BOTH
-mutationTargetStrategy: "BOTH"
+mutationTargetStrategy: "CHILDREN"
 mutationRate: 0.05
 bitFlipRate: 0.02
 bitAddRate: 0.01
 bitRemoveRate: 0.01
 
 # ONE_POINT , TWO_POINT , UNIFORM , ARITHMETIC
-crossoverStrategy: "ONE_POINT"
+crossoverStrategy: "TWO_POINT"
 crossoverRate: 0.7
 
 # KEEP_ALL_OR_NOTHING_RANDOMLY , KEEP_ONE_OR_NOT_RANDOMLY , KEEP_ONLY_FROM_FITTEST_PARENT

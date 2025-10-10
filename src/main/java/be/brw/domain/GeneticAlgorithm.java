@@ -30,6 +30,10 @@ public class GeneticAlgorithm {
      * The current population of individuals. This object is replaced with a new population each generation.
      */
     private Population population;
+    /**
+     * The current number of generations
+     */
+    private int generationCount;
 
     /**
      * Constructs a new GeneticAlgorithm instance and initializes the first population.
@@ -48,6 +52,12 @@ public class GeneticAlgorithm {
                 config.getMaxGenomeLength(),
                 config.getSeed()
         );
+
+        this.generationCount = 0;
+    }
+
+    public int getGenerationCount(){
+        return this.generationCount;
     }
 
     /**
@@ -64,6 +74,8 @@ public class GeneticAlgorithm {
         MutationTargetStrategy mutTarget = config.getMutationTargetStrategy();
         int eliteCount = (int) Math.round(config.getPopulationSize() * (1.0 - config.getCrossoverRate()));
         for (int i = 0; i <= maxGeneration; i++){
+            this.generationCount = i;
+
             List<Individual> individuals = this.population.getIndividuals();
 
             // Check for a perfect solution in the current population.
@@ -119,137 +131,117 @@ public class GeneticAlgorithm {
      * @param individual2 The second parent.
      * @return A new {@link Individual} (child) resulting from the crossover.
      */
-    private Individual crossover(Individual individual1, Individual individual2){
-        CrossoverStrategy crossoverStrategy = config.getCrossoverStrategy();
-        CrossoverLeftoverStrategy crossoverLeftoverStrategy = config.getCrossoverLeftoverStrategy();
-
-        List<Byte> newGenome = new ArrayList<>();
-        List<Byte> leftovers;
-
+    private Individual crossover(Individual individual1, Individual individual2) {
         int len1 = individual1.getGenomeLength();
         int len2 = individual2.getGenomeLength();
 
-        // Guard against crossover with very short genomes, returning the fitter parent instead.
-        if(len1 == 1 || len2 == 1){
-            if(individual1.getFitness() > individual2.getFitness()){
-                return individual1;
-            }else{
-                return individual2;
-            }
+        // Guard clause: fallback to fittest parent for very short genomes
+        if (len1 <= 1 || len2 <= 1) {
+            return (individual1.getFitness() > individual2.getFitness())
+                    ? individual1
+                    : individual2;
         }
 
+        CrossoverStrategy crossoverStrategy = config.getCrossoverStrategy();
+        CrossoverLeftoverStrategy leftoverStrategy = config.getCrossoverLeftoverStrategy();
+
+        List<Byte> genome1 = individual1.getGenome();
+        List<Byte> genome2 = individual2.getGenome();
         int minLength = Math.min(len1, len2);
 
-        List<Byte> firstGenome = individual1.getGenome();
-        List<Byte> secondGenome = individual2.getGenome();
+        List<Byte> newGenome = new ArrayList<>(minLength);
 
-        int cutPointFirst, cutPointSecond;
-        List<Byte> firstPart, secondPart, thirdPart, childGenome;
-        switch(crossoverStrategy){
-            case ONE_POINT:
-                cutPointFirst = this.random.nextInt(minLength - 1);
-
-                firstPart  = firstGenome.subList(0, cutPointFirst);
-                secondPart = secondGenome.subList(cutPointFirst, len2);
-
-                childGenome = new ArrayList<>();
-                childGenome.addAll(firstPart);
-                childGenome.addAll(secondPart);
-
-                return new Individual(childGenome);
-            case TWO_POINT:
-                // Ensure there are at least two points to choose from for a valid crossover.
-                if (minLength < 2) {
-                    // Fallback to a simpler crossover or return a parent if genomes are too short.
-                    return individual1.getFitness() > individual2.getFitness() ? individual1 : individual2;
-                }
-                cutPointFirst = this.random.nextInt(minLength - 1) + 1; // Range [1, minLength - 1]
-                cutPointSecond = this.random.nextInt(minLength - cutPointFirst) + cutPointFirst; // Range [cutPointFirst, minLength - 1]
-
-                firstPart  = individual1.getGenome().subList(0, cutPointFirst);
-                secondPart = individual2.getGenome().subList(cutPointFirst, cutPointSecond);
-                thirdPart = individual1.getGenome().subList(cutPointSecond, len2);
-
-                childGenome = new ArrayList<>();
-                childGenome.addAll(firstPart);
-                childGenome.addAll(secondPart);
-                childGenome.addAll(thirdPart);
-
-                return new Individual(childGenome);
-            case UNIFORM:
-                int pickA = minLength / 2;
-                int pickB = minLength / 2;
-
-                boolean choice = random.nextBoolean();
-                if(choice){
-                    pickA += minLength % 2;
-                }else{
-                    pickB += minLength % 2;
+        try {
+            switch (crossoverStrategy) {
+                case ONE_POINT -> {
+                    int cut = random.nextInt(minLength - 1);
+                    newGenome.addAll(genome1.subList(0, cut));
+                    newGenome.addAll(genome2.subList(cut, len2));
+                    return new Individual(newGenome);
                 }
 
-                int cursor = 0;
-                while(pickA + pickB > 0){
-                    choice = random.nextBoolean();
-                    if(choice && pickA > 0){
-                        newGenome.add(firstGenome.get(cursor));
-                        pickA--;
-                        cursor++;
-                        continue;
-                    }
+                case TWO_POINT -> {
+                    int cut1 = random.nextInt(minLength - 1) + 1; // [1, minLength - 1]
+                    int cut2 = random.nextInt(minLength - cut1) + cut1; // [cut1, minLength - 1]
+                    newGenome.addAll(genome1.subList(0, cut1));
+                    newGenome.addAll(genome2.subList(cut1, cut2));
+                    newGenome.addAll(genome1.subList(cut2, minLength));
+                    return new Individual(newGenome);
+                }
 
-                    if(!choice && pickB > 0){
-                        newGenome.add(secondGenome.get(cursor));
-                        pickB--;
-                        cursor++;
+                case UNIFORM -> {
+                    int pickA = minLength / 2 + (random.nextBoolean() ? minLength % 2 : 0);
+                    int pickB = minLength - pickA;
+
+                    for (int i = 0; i < minLength; i++) {
+                        boolean chooseA = pickB == 0 || (pickA > 0 && random.nextBoolean());
+                        newGenome.add((chooseA ? genome1 : genome2).get(i));
+                        if (chooseA) pickA--; else pickB--;
                     }
                 }
 
-                leftovers = (firstGenome.size() > secondGenome.size())
-                        ? firstGenome.subList(minLength, firstGenome.size())
-                        : secondGenome.subList(minLength, secondGenome.size());
-                break;
-            case ARITHMETIC:
-                for(int i = 0; i < minLength; i++){
-                    byte geneA = firstGenome.get(i);
-                    byte geneB = secondGenome.get(i);
-
-                    newGenome.add((byte) ((int)geneA ^ (int)geneB));
+                case ARITHMETIC -> {
+                    for (int i = 0; i < minLength; i++) {
+                        newGenome.add((byte) (genome1.get(i) ^ genome2.get(i)));
+                    }
                 }
 
-                leftovers = (firstGenome.size() > secondGenome.size())
-                        ? firstGenome.subList(minLength, firstGenome.size())
-                        : secondGenome.subList(minLength, secondGenome.size());
-
-                break;
-            default:
-                throw new UnsupportedOperationException("crossoverStrategy was not ONE_POINT, TWO_POINT, UNIFORM, ARITHMETIC");
-        }
-
-        if(!leftovers.isEmpty()) {
-            switch (crossoverLeftoverStrategy) {
-                case KEEP_ALL_OR_NOTHING_RANDOMLY:
-                    if(random.nextBoolean()){
-                        newGenome.addAll(leftovers);
-                    }
-                    break;
-                case KEEP_ONE_OR_NOT_RANDOMLY:
-                    for(byte leftover: leftovers){
-                        if(random.nextBoolean()){
-                            newGenome.add(leftover);
-                        }
-                    }
-                    break;
-                case KEEP_ONLY_FROM_FITTEST_PARENT:
-                    if(individual1.getFitness() >= individual2.getFitness()){
-                        newGenome.addAll(firstGenome.subList(minLength, firstGenome.size()));
-                    }else{
-                        newGenome.addAll(secondGenome.subList(minLength, secondGenome.size()));
-                    }
-                    break;
-                default:
-                    throw new UnsupportedOperationException("crossoverLeftoverStrategy was not KEEP_ALL_OR_NOTHING_RANDOMLY, KEEP_ONE_OR_NOT_RANDOMLY or KEEP_ONLY_FROM_FITTEST_PARENT");
+                default -> throw new UnsupportedOperationException(
+                        "Unknown crossover strategy: " + crossoverStrategy
+                );
             }
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+            System.err.println(crossoverStrategy);
+            System.err.println(leftoverStrategy);
+            System.err.println(individual1);
+            System.err.println(individual2);
+            System.exit(-1);
         }
+
+        // Common leftover handling (for UNIFORM and ARITHMETIC)
+        List<Byte> longer = (genome1.size() > genome2.size()) ? genome1 : genome2;
+        List<Byte> leftovers = new ArrayList<>(longer.subList(minLength, longer.size()));
+
+        return this.processLeftovers(leftoverStrategy, newGenome, leftovers, individual1, individual2);
+    }
+
+    private Individual processLeftovers(CrossoverLeftoverStrategy strategy, List<Byte> newGenome, List<Byte> leftovers, Individual firstIndividual, Individual secondIndividual) {
+        if (leftovers.isEmpty()) {
+            return new Individual(newGenome);
+        }
+
+        List<Byte> genome1 = firstIndividual.getGenome();
+        List<Byte> genome2 = secondIndividual.getGenome();
+        int minLength = Math.min(genome1.size(), genome2.size());
+
+        switch (strategy) {
+            case KEEP_ALL_OR_NOTHING_RANDOMLY -> {
+                if (random.nextBoolean()) {
+                    newGenome.addAll(leftovers);
+                }
+            }
+
+            case KEEP_ONE_OR_NOT_RANDOMLY -> {
+                for (byte leftover : leftovers) {
+                    if (random.nextBoolean()) {
+                        newGenome.add(leftover);
+                    }
+                }
+            }
+
+            case KEEP_ONLY_FROM_FITTEST_PARENT -> {
+                List<Byte> fittestGenome = (firstIndividual.getFitness() >= secondIndividual.getFitness())
+                        ? genome1
+                        : genome2;
+                newGenome.addAll(fittestGenome.subList(minLength, fittestGenome.size()));
+            }
+
+            default -> throw new UnsupportedOperationException(
+                    "Unknown crossover leftover strategy: " + strategy
+            );
+        }
+
         return new Individual(newGenome);
     }
 
@@ -329,13 +321,6 @@ public class GeneticAlgorithm {
                     totalFitness += i.getFitness();
                 }
 
-                // If total fitness is zero, all individuals are equally bad.
-                // Fallback to random selection.
-                if (totalFitness == 0) {
-                    Collections.shuffle(individuals, random);
-                    return individuals.subList(0, selectionSize);
-                }
-
                 for (int i = 0; i < selectionSize; i++) {
                     int pick = this.random.nextInt(totalFitness);
 
@@ -355,8 +340,7 @@ public class GeneticAlgorithm {
                 List<Individual> tournamentWinners = new ArrayList<>(selectionSize);
                 for (int i = 0; i < selectionSize; i++) {
                     Collections.shuffle(individuals, random);
-                    List<Individual> tournamentContestants = individuals.subList(0, tournamentSize);
-                    tournamentWinners.add(Collections.max(tournamentContestants));
+                    tournamentWinners.addAll(individuals.subList(0, tournamentSize));
                 }
                 return tournamentWinners;
         }
