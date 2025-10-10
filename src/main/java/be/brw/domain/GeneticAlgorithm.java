@@ -50,7 +50,8 @@ public class GeneticAlgorithm {
                 config.getPopulationSize(),
                 config.getMinGenomeLength(),
                 config.getMaxGenomeLength(),
-                config.getSeed()
+                config.getSeed(),
+                config.getLengthPunishingStrategy()
         );
 
         this.generationCount = 0;
@@ -114,7 +115,7 @@ public class GeneticAlgorithm {
 
             // Create the next generation's population from survivors and new children.
             survivors.addAll(children);
-            this.population = new Population(config.getSolution(), survivors, config.getSeed());
+            this.population = new Population(config.getSolution(), survivors, config.getSeed(), config.getLengthPunishingStrategy());
         }
 
         System.out.println("No solution found in " + maxGeneration + " generations");

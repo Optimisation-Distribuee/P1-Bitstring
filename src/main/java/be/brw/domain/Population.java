@@ -1,10 +1,13 @@
 package be.brw.domain;
 
 
+import be.brw.domain.strategy.LengthPunishingStrategy;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
+
 
 /**
  * Represents a collection of {@link Individual} objects in a genetic algorithm.
@@ -26,6 +29,8 @@ public class Population {
      */
     private List<Individual> individuals;
 
+    private final LengthPunishingStrategy lengthPunishingStrategy;
+
     /**
      * Constructs a new population with randomly generated individuals of variable genome length.
      * After initialization, the fitness of each individual is calculated against the provided solution.
@@ -36,8 +41,9 @@ public class Population {
      * @param maxGenomeLength The maximum possible length for a randomly generated genome.
      * @param seed The seed for the random number generator to ensure reproducibility.
      */
-    public Population(List<Byte> solution, int size, int minGenomeLength, int maxGenomeLength, int seed){
+    public Population(List<Byte> solution, int size, int minGenomeLength, int maxGenomeLength, int seed, LengthPunishingStrategy lengthPunishingStrategy){
         this.random = new Random(seed);
+        this.lengthPunishingStrategy = lengthPunishingStrategy;
         this.initPopulation(size, minGenomeLength, maxGenomeLength);
         this.updateFitness(solution);
     }
@@ -51,8 +57,9 @@ public class Population {
      * @param defaultGenomeLength The fixed length for all randomly generated genomes.
      * @param seed The seed for the random number generator to ensure reproducibility.
      */
-    public Population(List<Byte> solution, int size, int defaultGenomeLength, int seed){
+    public Population(List<Byte> solution, int size, int defaultGenomeLength, int seed, LengthPunishingStrategy lengthPunishingStrategy){
         this.random = new Random(seed);
+        this.lengthPunishingStrategy = lengthPunishingStrategy;
         this.initPopulation(size, defaultGenomeLength);
         this.updateFitness(solution);
     }
@@ -66,9 +73,10 @@ public class Population {
      * @param individuals The pre-existing list of individuals to form the population.
      * @param seed The seed for the random number generator.
      */
-    public Population(List<Byte> solution, List<Individual> individuals, int seed){
+    public Population(List<Byte> solution, List<Individual> individuals, int seed, LengthPunishingStrategy lengthPunishingStrategy){
         this.random = new Random(seed);
         this.individuals = individuals;
+        this.lengthPunishingStrategy = lengthPunishingStrategy;
         this.updateFitness(solution);
     }
 
@@ -86,23 +94,24 @@ public class Population {
         for (Individual individual : this.individuals) {
             List<Byte> genome = individual.getGenome();
 
-            int matchingGenes = 0;
+            int fitness = 0;
             // Determine the comparison length to avoid IndexOutOfBoundsException
             int comparisonLength = Math.min(solution.size(), genome.size());
 
             for (int i = 0; i < comparisonLength; i++) {
                 if (solution.get(i).equals(genome.get(i))) {
-                    matchingGenes++;
+                    fitness++;
                 }
             }
 
-            individual.setFitness(matchingGenes);
-
             // Calculate the penalty for length difference.
-            // TODO: determine how we want to do this
-            // int lengthDifference = Math.abs(genome.size() - solution.size());
-            // int finalFitness = matchingGenes - lengthDifference;
-            // individual.setFitness(finalFitness);
+            int punishingFactor = 0;
+            switch (lengthPunishingStrategy) {
+                case LINEAR -> punishingFactor = Math.abs(genome.size() - solution.size());
+                case EXPONENTIAL -> punishingFactor = (int) Math.pow(2, genome.size() - solution.size());
+            }
+            fitness = Math.max(0, fitness - punishingFactor);
+            individual.setFitness(fitness);
         }
     }
 

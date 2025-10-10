@@ -10,7 +10,8 @@ bitFlipRate: 0.02
 bitAddRate: 0.01
 bitRemoveRate: 0.01
 crossoverRate: 0.7
-selectionStrategy: ROULETTE
-mutationTargetStrategy: CHILDREN
-crossoverStrategy: UNIFORM
-crossoverLeftoverStrategy: KEEP_ONE_OR_NOT_RANDOMLY
+selectionStrategy: ELITISM
+mutationTargetStrategy: BOTH
+crossoverStrategy: TWO_POINT
+crossoverLeftoverStrategy: KEEP_ALL_OR_NOTHING_RANDOMLY
+lengthPunishingStrategy: EXPONENTIAL

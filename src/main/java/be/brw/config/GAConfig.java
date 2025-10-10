@@ -1,9 +1,6 @@
 package be.brw.config;
 
-import be.brw.domain.strategy.CrossoverLeftoverStrategy;
-import be.brw.domain.strategy.CrossoverStrategy;
-import be.brw.domain.strategy.MutationTargetStrategy;
-import be.brw.domain.strategy.SelectionStrategy;
+import be.brw.domain.strategy.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,7 +34,10 @@ public class GAConfig {
     // Leftover
     private final CrossoverLeftoverStrategy crossoverLeftoverStrategy;
 
-    public GAConfig(int seed, byte[] solution, int minGenomeLength, int maxGenomeLength, int maxGeneration, int populationSize, SelectionStrategy selectionStrategy, int tournamentSize, MutationTargetStrategy mutationTargetStrategy, double mutationRate, double bitFlipRate, double bitAddRate, double bitRemoveRate, CrossoverStrategy crossoverStrategy, double crossoverRate, CrossoverLeftoverStrategy crossoverLeftoverStrategy) {
+    // Punisher
+    private final LengthPunishingStrategy lengthPunishingStrategy;
+
+    public GAConfig(int seed, byte[] solution, int minGenomeLength, int maxGenomeLength, int maxGeneration, int populationSize, SelectionStrategy selectionStrategy, int tournamentSize, MutationTargetStrategy mutationTargetStrategy, double mutationRate, double bitFlipRate, double bitAddRate, double bitRemoveRate, CrossoverStrategy crossoverStrategy, double crossoverRate, CrossoverLeftoverStrategy crossoverLeftoverStrategy, LengthPunishingStrategy lengthPunishingStrategy) {
         this.seed = seed;
         this.solution = solution;
         this.minGenomeLength = minGenomeLength;
@@ -54,6 +54,7 @@ public class GAConfig {
         this.crossoverStrategy = crossoverStrategy;
         this.crossoverRate = crossoverRate;
         this.crossoverLeftoverStrategy = crossoverLeftoverStrategy;
+        this.lengthPunishingStrategy = lengthPunishingStrategy;
     }
 
     public int getSeed(){
@@ -120,6 +121,10 @@ public class GAConfig {
 
     public CrossoverLeftoverStrategy getCrossoverLeftoverStrategy() {
         return crossoverLeftoverStrategy;
+    }
+
+    public LengthPunishingStrategy getLengthPunishingStrategy(){
+        return lengthPunishingStrategy;
     }
 
     @Override

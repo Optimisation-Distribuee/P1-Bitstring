@@ -1,9 +1,6 @@
 package be.brw.config;
 
-import be.brw.domain.strategy.CrossoverLeftoverStrategy;
-import be.brw.domain.strategy.CrossoverStrategy;
-import be.brw.domain.strategy.MutationTargetStrategy;
-import be.brw.domain.strategy.SelectionStrategy;
+import be.brw.domain.strategy.*;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.BufferedReader;
@@ -52,6 +49,8 @@ public class ConfigLoader {
             double crossoverRate = Double.parseDouble(obj.get("crossoverRate").toString());
             CrossoverLeftoverStrategy crossoverLeftoverStrategy = CrossoverLeftoverStrategy.valueOf(obj.get("crossoverLeftoverStrategy").toString());
 
+            LengthPunishingStrategy lengthPunishingStrategy = LengthPunishingStrategy.valueOf(obj.get("lengthPunishingStrategy").toString());
+
             return new GAConfig(
                     seed,
                     solution,
@@ -68,7 +67,8 @@ public class ConfigLoader {
                     bitRemoveRate,
                     crossoverStrategy,
                     crossoverRate,
-                    crossoverLeftoverStrategy
+                    crossoverLeftoverStrategy,
+                    lengthPunishingStrategy
             );
         }
     }

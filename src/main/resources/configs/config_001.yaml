@@ -14,3 +14,4 @@ selectionStrategy: ELITISM
 mutationTargetStrategy: PARENTS
 crossoverStrategy: ONE_POINT
 crossoverLeftoverStrategy: KEEP_ALL_OR_NOTHING_RANDOMLY
+lengthPunishingStrategy: LINEAR

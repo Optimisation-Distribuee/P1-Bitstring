@@ -13,4 +13,5 @@ crossoverRate: 0.7
 selectionStrategy: ELITISM
 mutationTargetStrategy: PARENTS
 crossoverStrategy: ONE_POINT
-crossoverLeftoverStrategy: KEEP_ONE_OR_NOT_RANDOMLY
+crossoverLeftoverStrategy: KEEP_ALL_OR_NOTHING_RANDOMLY
+lengthPunishingStrategy: EXPONENTIAL

@@ -11,6 +11,7 @@ bitAddRate: 0.01
 bitRemoveRate: 0.01
 crossoverRate: 0.7
 selectionStrategy: ELITISM
-mutationTargetStrategy: CHILDREN
-crossoverStrategy: UNIFORM
-crossoverLeftoverStrategy: KEEP_ONE_OR_NOT_RANDOMLY
+mutationTargetStrategy: PARENTS
+crossoverStrategy: ARITHMETIC
+crossoverLeftoverStrategy: KEEP_ALL_OR_NOTHING_RANDOMLY
+lengthPunishingStrategy: EXPONENTIAL
