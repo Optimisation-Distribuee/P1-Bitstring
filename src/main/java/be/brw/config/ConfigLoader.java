@@ -44,8 +44,14 @@ public class ConfigLoader {
             double bitFlipRate = Double.parseDouble(obj.get("bitFlipRate").toString());
             double bitAddRate = Double.parseDouble(obj.get("bitAddRate").toString());
             double bitRemoveRate = Double.parseDouble(obj.get("bitRemoveRate").toString());
-            if (bitFlipRate + bitAddRate + bitRemoveRate != mutationRate) {
-                throw new IllegalArgumentException("Sum of bit mutation rates does not equal total mutation rate.");
+
+            double sum = bitFlipRate + bitAddRate + bitRemoveRate;
+            double epsilon = 1e-9;
+
+            if (Math.abs(sum - 1.0) > epsilon) {
+                throw new IllegalArgumentException(
+                        String.format("Sum of bit mutation rates does not equal 1 (%.12f)", sum)
+                );
             }
 
             CrossoverStrategy crossoverStrategy = CrossoverStrategy.valueOf(obj.get("crossoverStrategy").toString());

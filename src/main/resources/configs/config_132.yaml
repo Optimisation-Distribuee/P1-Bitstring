@@ -5,10 +5,10 @@ maxGenomeLength: 10
 maxGeneration: 3000
 populationSize: 200
 tournamentSize: 6
-mutationRate: 0.05
-bitFlipRate: 0.02
-bitAddRate: 0.01
-bitRemoveRate: 0.01
+mutationRate: 0.3
+bitFlipRate: 0.7
+bitAddRate: 0.2
+bitRemoveRate: 0.1
 crossoverRate: 0.7
 lengthPunishingFactor: 0.5
 selectionStrategy: ROULETTE

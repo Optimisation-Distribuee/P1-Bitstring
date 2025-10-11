@@ -279,7 +279,7 @@ public class GeneticAlgorithm {
         Byte randomGene = (byte) random.nextInt(2);
 
         // Pick a mutation in a roulette-like fashion
-        double pick = random.nextDouble(config.getMutationRate());
+        double pick = random.nextDouble();
         if (pick <= config.getBitAddRate()) {
             // ADD mutation
             individual.addGene(randomGene);

@@ -1,221 +1,221 @@
 ===== Genetic Algorithm Benchmark =====
-Started at: 2025-10-10T16:13:16.852764100
+Started at: 2025-10-11T12:00:59.025687700
 
 [config_001.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_002.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=154
+[config_002.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_003.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_004.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=154
+[config_004.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_005.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_006.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=154
+[config_006.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_007.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_008.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=237
+[config_008.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_009.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_010.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=237
+[config_010.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_011.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_012.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=237
+[config_012.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_013.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_014.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=71
+[config_014.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_015.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_016.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=104
+[config_016.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_017.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_018.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=109
-[config_019.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=815
-[config_020.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=203
-[config_021.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=815
-[config_022.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=32
-[config_023.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=815
-[config_024.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=36
+[config_018.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_019.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_020.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=21
+[config_021.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_022.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=21
+[config_023.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_024.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=13
 [config_025.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_026.yaml] Fitness=6  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
+[config_026.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_027.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_028.yaml] Fitness=6  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
+[config_028.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_029.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_030.yaml] Fitness=6  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
+[config_030.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_031.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_032.yaml] Fitness=6  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
+[config_032.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_033.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_034.yaml] Fitness=6  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
+[config_034.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_035.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_036.yaml] Fitness=6  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
+[config_036.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_037.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_038.yaml] Fitness=6  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
+[config_038.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_039.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_040.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=3000
+[config_040.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_041.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_042.yaml] Fitness=6  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
+[config_042.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_043.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
-[config_044.yaml] Fitness=6  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
+[config_044.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
 [config_045.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
-[config_046.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=3000
+[config_046.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
 [config_047.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
-[config_048.yaml] Fitness=6  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
+[config_048.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 1, 0]  Generations=3000
 [config_049.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_050.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=154
+[config_050.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_051.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_052.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=154
+[config_052.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_053.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_054.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=154
+[config_054.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_055.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_056.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=237
+[config_056.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_057.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_058.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=237
+[config_058.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_059.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_060.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=237
+[config_060.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_061.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_062.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=71
+[config_062.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_063.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_064.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=104
+[config_064.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_065.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_066.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=109
-[config_067.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=815
-[config_068.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=203
-[config_069.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=815
-[config_070.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=32
-[config_071.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=815
-[config_072.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=36
-[config_073.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_074.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=16
-[config_075.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_076.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=16
-[config_077.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_078.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=16
-[config_079.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_080.yaml] Fitness=3  Genomes=[0, 0, 0]  Generations=3000
-[config_081.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_082.yaml] Fitness=3  Genomes=[0, 0, 0]  Generations=3000
-[config_083.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_084.yaml] Fitness=3  Genomes=[0, 0, 0]  Generations=3000
+[config_066.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_067.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_068.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_069.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_070.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_071.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_072.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_073.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_074.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_075.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_076.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_077.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_078.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_079.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=4
+[config_080.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_081.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=4
+[config_082.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_083.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=4
+[config_084.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
 [config_085.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
-[config_086.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_087.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
-[config_088.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_086.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_087.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_088.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_089.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
-[config_090.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
-[config_091.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_092.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_090.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_091.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_092.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_093.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_094.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_095.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_096.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_097.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_098.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=3000
-[config_099.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_100.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=3000
-[config_101.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_102.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=3000
+[config_094.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_095.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_096.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_097.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_098.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_099.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_100.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_101.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_102.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
 [config_103.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_104.yaml] Fitness=5  Genomes=[0, 0, 0, 0, 0]  Generations=3000
+[config_104.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=4
 [config_105.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_106.yaml] Fitness=5  Genomes=[0, 0, 0, 0, 0]  Generations=3000
+[config_106.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=4
 [config_107.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_108.yaml] Fitness=5  Genomes=[0, 0, 0, 0, 0]  Generations=3000
+[config_108.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=4
 [config_109.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
-[config_110.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_111.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_112.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=3
-[config_113.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_114.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=3000
+[config_110.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_111.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_112.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_113.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_114.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_115.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_116.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_116.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_117.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_118.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_118.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_119.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_120.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_121.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_122.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=16
-[config_123.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_124.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=16
-[config_125.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_126.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=16
-[config_127.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_128.yaml] Fitness=3  Genomes=[0, 0, 0]  Generations=3000
-[config_129.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_130.yaml] Fitness=3  Genomes=[0, 0, 0]  Generations=3000
-[config_131.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_132.yaml] Fitness=3  Genomes=[0, 0, 0]  Generations=3000
+[config_120.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_121.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_122.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_123.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_124.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_125.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_126.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_127.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_128.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_129.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_130.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_131.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_132.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
 [config_133.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
-[config_134.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_135.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
-[config_136.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_137.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
-[config_138.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
-[config_139.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_140.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_134.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_135.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_136.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_137.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_138.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_139.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_140.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 [config_141.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_142.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_143.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_144.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_145.yaml] Fitness=3  Genomes=[1, 0, 0, 1, 1, 0, 0]  Generations=3000
-[config_146.yaml] Fitness=4  Genomes=[1, 0, 0, 1, 1, 0, 0]  Generations=3000
-[config_147.yaml] Fitness=3  Genomes=[1, 0, 0, 1, 1, 0, 0]  Generations=3000
-[config_148.yaml] Fitness=4  Genomes=[1, 0, 0, 1, 1, 0, 0]  Generations=3000
-[config_149.yaml] Fitness=3  Genomes=[1, 0, 0, 1, 1, 0, 0]  Generations=3000
-[config_150.yaml] Fitness=4  Genomes=[1, 0, 0, 1, 1, 0, 0]  Generations=3000
-[config_151.yaml] Fitness=0  Genomes=[1, 0]  Generations=3000
-[config_152.yaml] Fitness=3  Genomes=[0, 0, 0]  Generations=3000
-[config_153.yaml] Fitness=0  Genomes=[1, 0]  Generations=3000
-[config_154.yaml] Fitness=3  Genomes=[0, 0, 0]  Generations=3000
-[config_155.yaml] Fitness=0  Genomes=[1, 0]  Generations=3000
-[config_156.yaml] Fitness=3  Genomes=[0, 0, 0]  Generations=3000
-[config_157.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=86
-[config_158.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=86
-[config_159.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
-[config_160.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
-[config_161.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=10
-[config_162.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=7
-[config_163.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=4
-[config_164.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=4
-[config_165.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=10
-[config_166.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=10
-[config_167.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
-[config_168.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
-[config_169.yaml] Fitness=5  Genomes=[0, 1, 0, 1, 0, 0, 0, 0, 1]  Generations=3000
-[config_170.yaml] Fitness=4  Genomes=[0, 1, 0, 1, 0, 0, 0, 0, 1]  Generations=3000
-[config_171.yaml] Fitness=5  Genomes=[0, 1, 0, 1, 0, 0, 0, 0, 1]  Generations=3000
-[config_172.yaml] Fitness=4  Genomes=[0, 1, 0, 1, 0, 0, 0, 0, 1]  Generations=3000
-[config_173.yaml] Fitness=5  Genomes=[0, 1, 0, 1, 0, 0, 0, 0, 1]  Generations=3000
-[config_174.yaml] Fitness=4  Genomes=[0, 1, 0, 1, 0, 0, 0, 0, 1]  Generations=3000
-[config_175.yaml] Fitness=0  Genomes=[0, 1, 1, 0, 0]  Generations=3000
-[config_176.yaml] Fitness=3  Genomes=[0, 1, 1, 0, 0]  Generations=3000
-[config_177.yaml] Fitness=0  Genomes=[0, 1, 1, 0, 0]  Generations=3000
-[config_178.yaml] Fitness=3  Genomes=[0, 1, 1, 0, 0]  Generations=3000
-[config_179.yaml] Fitness=0  Genomes=[0, 1, 1, 0, 0]  Generations=3000
-[config_180.yaml] Fitness=3  Genomes=[0, 1, 1, 0, 0]  Generations=3000
-[config_181.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=14
-[config_182.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=14
-[config_183.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=6
-[config_184.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=6
-[config_185.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=12
-[config_186.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=12
-[config_187.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_188.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_142.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_143.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_144.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_145.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=6
+[config_146.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=6
+[config_147.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=6
+[config_148.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=6
+[config_149.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=6
+[config_150.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=6
+[config_151.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=678
+[config_152.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1021
+[config_153.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=678
+[config_154.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1021
+[config_155.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=678
+[config_156.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1021
+[config_157.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=16
+[config_158.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=16
+[config_159.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=10
+[config_160.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=10
+[config_161.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_162.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_163.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_164.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_165.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_166.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_167.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_168.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_169.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=116
+[config_170.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=116
+[config_171.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=116
+[config_172.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=116
+[config_173.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=116
+[config_174.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=116
+[config_175.yaml] Fitness=0  Genomes=[1, 1]  Generations=3000
+[config_176.yaml] Fitness=0  Genomes=[1, 1]  Generations=3000
+[config_177.yaml] Fitness=0  Genomes=[1, 1]  Generations=3000
+[config_178.yaml] Fitness=0  Genomes=[1, 1]  Generations=3000
+[config_179.yaml] Fitness=0  Genomes=[1, 1]  Generations=3000
+[config_180.yaml] Fitness=0  Genomes=[1, 1]  Generations=3000
+[config_181.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=59
+[config_182.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=59
+[config_183.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=17
+[config_184.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=17
+[config_185.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_186.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=4
+[config_187.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
+[config_188.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=2
 [config_189.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
-[config_190.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=5
-[config_191.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_192.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
-[config_193.yaml] Fitness=3  Genomes=[1, 0, 0, 1, 1, 0, 0]  Generations=3000
-[config_194.yaml] Fitness=4  Genomes=[1, 0, 0, 1, 1, 0, 0]  Generations=3000
-[config_195.yaml] Fitness=3  Genomes=[1, 0, 0, 1, 1, 0, 0]  Generations=3000
-[config_196.yaml] Fitness=4  Genomes=[1, 0, 0, 1, 1, 0, 0]  Generations=3000
-[config_197.yaml] Fitness=3  Genomes=[1, 0, 0, 1, 1, 0, 0]  Generations=3000
-[config_198.yaml] Fitness=4  Genomes=[1, 0, 0, 1, 1, 0, 0]  Generations=3000
-[config_199.yaml] Fitness=0  Genomes=[1, 0]  Generations=3000
-[config_200.yaml] Fitness=3  Genomes=[0, 0, 0]  Generations=3000
-[config_201.yaml] Fitness=0  Genomes=[1, 0]  Generations=3000
-[config_202.yaml] Fitness=3  Genomes=[0, 0, 0]  Generations=3000
-[config_203.yaml] Fitness=0  Genomes=[1, 0]  Generations=3000
-[config_204.yaml] Fitness=3  Genomes=[0, 0, 0]  Generations=3000
-[config_205.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=86
-[config_206.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=86
-[config_207.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
-[config_208.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_190.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_191.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=8
+[config_192.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=8
+[config_193.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_194.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_195.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_196.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_197.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_198.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=5
+[config_199.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1273
+[config_200.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1156
+[config_201.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1273
+[config_202.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1156
+[config_203.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1273
+[config_204.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1156
+[config_205.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_206.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_207.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=11
+[config_208.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=11
 [config_209.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=10
-[config_210.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=7
-[config_211.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=4
-[config_212.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=4
-[config_213.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=10
-[config_214.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0]  Generations=10
-[config_215.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
-[config_216.yaml] Fitness=7  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_210.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=13
+[config_211.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_212.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_213.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_214.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=3
+[config_215.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
+[config_216.yaml] Fitness=8  Genomes=[0, 0, 0, 0, 0, 0, 0, 0]  Generations=1
 
 ===== End of Benchmark =====
