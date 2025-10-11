@@ -29,7 +29,14 @@ public class Population {
      */
     private List<Individual> individuals;
 
+    /**
+     * The strategy used to penalize individuals whose genome length differs from the solution's length.
+     */
     private final LengthPunishingStrategy lengthPunishingStrategy;
+    /**
+     * The factor by which the length-difference penalty is multiplied.
+     */
+    private final double lengthPunishingFactor;
 
     /**
      * Constructs a new population with randomly generated individuals of variable genome length.
@@ -40,10 +47,13 @@ public class Population {
      * @param minGenomeLength The minimum possible length for a randomly generated genome.
      * @param maxGenomeLength The maximum possible length for a randomly generated genome.
      * @param seed The seed for the random number generator to ensure reproducibility.
+     * @param lengthPunishingStrategy The strategy for penalizing genome length differences.
+     * @param lengthPunishingFactor The multiplier for the length penalty.
      */
-    public Population(List<Byte> solution, int size, int minGenomeLength, int maxGenomeLength, int seed, LengthPunishingStrategy lengthPunishingStrategy){
+    public Population(List<Byte> solution, int size, int minGenomeLength, int maxGenomeLength, int seed, LengthPunishingStrategy lengthPunishingStrategy, double lengthPunishingFactor){
         this.random = new Random(seed);
         this.lengthPunishingStrategy = lengthPunishingStrategy;
+        this.lengthPunishingFactor = lengthPunishingFactor;
         this.initPopulation(size, minGenomeLength, maxGenomeLength);
         this.updateFitness(solution);
     }
@@ -56,10 +66,13 @@ public class Population {
      * @param size The number of individuals to create in the population.
      * @param defaultGenomeLength The fixed length for all randomly generated genomes.
      * @param seed The seed for the random number generator to ensure reproducibility.
+     * @param lengthPunishingStrategy The strategy for penalizing genome length differences.
+     * @param lengthPunishingFactor The multiplier for the length penalty.
      */
-    public Population(List<Byte> solution, int size, int defaultGenomeLength, int seed, LengthPunishingStrategy lengthPunishingStrategy){
+    public Population(List<Byte> solution, int size, int defaultGenomeLength, int seed, LengthPunishingStrategy lengthPunishingStrategy, double lengthPunishingFactor){
         this.random = new Random(seed);
         this.lengthPunishingStrategy = lengthPunishingStrategy;
+        this.lengthPunishingFactor = lengthPunishingFactor;
         this.initPopulation(size, defaultGenomeLength);
         this.updateFitness(solution);
     }
@@ -72,11 +85,14 @@ public class Population {
      * @param solution The target bitstring solution used for fitness calculation.
      * @param individuals The pre-existing list of individuals to form the population.
      * @param seed The seed for the random number generator.
+     * @param lengthPunishingStrategy The strategy for penalizing genome length differences.
+     * @param lengthPunishingFactor The multiplier for the length penalty.
      */
-    public Population(List<Byte> solution, List<Individual> individuals, int seed, LengthPunishingStrategy lengthPunishingStrategy){
+    public Population(List<Byte> solution, List<Individual> individuals, int seed, LengthPunishingStrategy lengthPunishingStrategy, double lengthPunishingFactor){
         this.random = new Random(seed);
         this.individuals = individuals;
         this.lengthPunishingStrategy = lengthPunishingStrategy;
+        this.lengthPunishingFactor = lengthPunishingFactor;
         this.updateFitness(solution);
     }
 
@@ -105,12 +121,12 @@ public class Population {
             }
 
             // Calculate the penalty for length difference.
-            int punishingFactor = 0;
+            int penalty = 0;
             switch (lengthPunishingStrategy) {
-                case LINEAR -> punishingFactor = Math.abs(genome.size() - solution.size());
-                case EXPONENTIAL -> punishingFactor = (int) Math.pow(2, genome.size() - solution.size());
+                case LINEAR -> penalty = Math.abs(genome.size() - solution.size());
+                case EXPONENTIAL -> penalty = (int) Math.pow(genome.size() - solution.size(), 2);
             }
-            fitness = Math.max(0, fitness - punishingFactor);
+            fitness = (int) Math.max(0, fitness - lengthPunishingFactor * penalty);
             individual.setFitness(fitness);
         }
     }
@@ -188,6 +204,11 @@ public class Population {
         return java.util.Collections.max(individuals, Comparator.comparingInt(Individual::getFitness));
     }
 
+    /**
+     * Returns the number of individuals in the population.
+     *
+     * @return The size of the population.
+     */
     public int size() {
         if (this.individuals == null) {
             return 0;

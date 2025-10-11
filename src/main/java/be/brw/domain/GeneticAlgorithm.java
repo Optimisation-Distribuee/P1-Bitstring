@@ -51,12 +51,18 @@ public class GeneticAlgorithm {
                 config.getMinGenomeLength(),
                 config.getMaxGenomeLength(),
                 config.getSeed(),
-                config.getLengthPunishingStrategy()
+                config.getLengthPunishingStrategy(),
+                config.getLengthPunishingFactor()
         );
 
         this.generationCount = 0;
     }
 
+    /**
+     * Gets the current generation count.
+     *
+     * @return The number of generations that have been processed.
+     */
     public int getGenerationCount(){
         return this.generationCount;
     }
@@ -115,7 +121,7 @@ public class GeneticAlgorithm {
 
             // Create the next generation's population from survivors and new children.
             survivors.addAll(children);
-            this.population = new Population(config.getSolution(), survivors, config.getSeed(), config.getLengthPunishingStrategy());
+            this.population = new Population(config.getSolution(), survivors, config.getSeed(), config.getLengthPunishingStrategy(), config.getLengthPunishingFactor());
         }
 
         System.out.println("No solution found in " + maxGeneration + " generations");
@@ -136,7 +142,7 @@ public class GeneticAlgorithm {
         int len1 = individual1.getGenomeLength();
         int len2 = individual2.getGenomeLength();
 
-        // Guard clause: fallback to fittest parent for very short genomes
+        // Guard clause: fallback to the fittest parent for very short genomes
         if (len1 <= 1 || len2 <= 1) {
             return (individual1.getFitness() > individual2.getFitness())
                     ? individual1
@@ -207,6 +213,20 @@ public class GeneticAlgorithm {
         return this.processLeftovers(leftoverStrategy, newGenome, leftovers, individual1, individual2);
     }
 
+    /**
+     * Handles leftover genes from the longer parent's genome after crossover.
+     * <p>
+     * Based on the configured {@link CrossoverLeftoverStrategy}, this method decides how to
+     * append (or not append) the remaining genes to the child's genome.
+     * </p>
+     *
+     * @param strategy The strategy for handling leftover genes.
+     * @param newGenome The child's genome being constructed.
+     * @param leftovers The list of leftover genes from the longer parent.
+     * @param firstIndividual The first parent individual.
+     * @param secondIndividual The second parent individual.
+     * @return A new {@link Individual} with the final genome after handling leftovers.
+     */
     private Individual processLeftovers(CrossoverLeftoverStrategy strategy, List<Byte> newGenome, List<Byte> leftovers, Individual firstIndividual, Individual secondIndividual) {
         if (leftovers.isEmpty()) {
             return new Individual(newGenome);
@@ -249,11 +269,11 @@ public class GeneticAlgorithm {
     /**
      * Applies a mutation to an individual's genome.
      * <p>
-     * A random mutation type (ADD, REMOVE, FLIP) is chosen. The mutation is then applied
-     * based on the corresponding rate defined in {@link GAConfig}.
+     * A random mutation type (ADD, REMOVE, or FLIP) is chosen. The mutation is then applied
+     * based on the corresponding probability (e.g., {@code bitAddRate}) defined in {@link GAConfig}.
      * </p>
      * @param individual The individual to mutate.
-     * @return The same individual, now potentially mutated.
+     * @return The same individual instance, which has been modified in-place.
      */
     private Individual mutate(Individual individual){
         MutationStrategy randomMutationStrategy = MutationStrategy.values()[random.nextInt(MutationStrategy.values().length)];

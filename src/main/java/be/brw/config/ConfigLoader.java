@@ -50,6 +50,7 @@ public class ConfigLoader {
             CrossoverLeftoverStrategy crossoverLeftoverStrategy = CrossoverLeftoverStrategy.valueOf(obj.get("crossoverLeftoverStrategy").toString());
 
             LengthPunishingStrategy lengthPunishingStrategy = LengthPunishingStrategy.valueOf(obj.get("lengthPunishingStrategy").toString());
+            double lengthPunishingFactor = Double.parseDouble(obj.get("lengthPunishingFactor").toString());
 
             return new GAConfig(
                     seed,
@@ -68,7 +69,8 @@ public class ConfigLoader {
                     crossoverStrategy,
                     crossoverRate,
                     crossoverLeftoverStrategy,
-                    lengthPunishingStrategy
+                    lengthPunishingStrategy,
+                    lengthPunishingFactor
             );
         }
     }
