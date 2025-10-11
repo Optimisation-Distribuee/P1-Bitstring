@@ -10,6 +10,7 @@ bitFlipRate: 0.02
 bitAddRate: 0.01
 bitRemoveRate: 0.01
 crossoverRate: 0.7
+lengthPunishingFactor: 0.5
 selectionStrategy: ROULETTE
 mutationTargetStrategy: BOTH
 crossoverStrategy: ARITHMETIC
