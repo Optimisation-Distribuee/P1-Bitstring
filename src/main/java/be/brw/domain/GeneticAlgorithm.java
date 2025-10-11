@@ -3,10 +3,7 @@ package be.brw.domain;
 import be.brw.config.GAConfig;
 import be.brw.domain.strategy.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Implements the core logic of a genetic algorithm to solve a bitstring-matching problem.
@@ -99,7 +96,7 @@ public class GeneticAlgorithm {
             // 2. Mutation (on parents): Optionally mutate the selected survivors.
             if (mutTarget == MutationTargetStrategy.PARENTS || mutTarget == MutationTargetStrategy.BOTH) {
                 for (int j = 0; j < survivors.size(); j++) {
-                    if (random.nextDouble() < config.getMutationRate()) {
+                    if (random.nextDouble() <= config.getMutationRate()) {
                         survivors.set(j, mutate(survivors.get(j)));
                     }
                 }
@@ -110,8 +107,8 @@ public class GeneticAlgorithm {
             while (eliteCount + children.size() < config.getPopulationSize()) {
                 List<Individual> parents = selection(survivors, 2);
                 Individual child = crossover(parents.getFirst(), parents.getLast());
-                if (mutTarget == MutationTargetStrategy.PARENTS || mutTarget == MutationTargetStrategy.BOTH) {
-                    if (random.nextDouble() < config.getMutationRate()) {
+                if (mutTarget == MutationTargetStrategy.CHILDREN || mutTarget == MutationTargetStrategy.BOTH) {
+                    if (random.nextDouble() <= config.getMutationRate()) {
                         mutate(child);
                     }
                 }
@@ -269,51 +266,30 @@ public class GeneticAlgorithm {
     /**
      * Applies a mutation to an individual's genome.
      * <p>
-     * A random mutation type (ADD, REMOVE, or FLIP) is chosen. The mutation is then applied
-     * based on the corresponding probability (e.g., {@code bitAddRate}) defined in {@link GAConfig}.
+     * This method assumes the decision to mutate has already been made. It selects a specific
+     * mutation type (ADD, REMOVE, or FLIP) based on the relative weights of their configured rates
+     * ({@code bitAddRate}, {@code bitRemoveRate}, {@code bitFlipRate}). The sum of these rates
+     * equals the overall {@code mutationRate}.
      * </p>
      * @param individual The individual to mutate.
      * @return The same individual instance, which has been modified in-place.
      */
     private Individual mutate(Individual individual){
-        MutationStrategy randomMutationStrategy = MutationStrategy.values()[random.nextInt(MutationStrategy.values().length)];
-
         int randomGeneIndex = random.nextInt(individual.getGenomeLength());
         Byte randomGene = (byte) random.nextInt(2);
 
-        boolean shouldMutate;
-        switch(randomMutationStrategy){
-            case ADD:
-                shouldMutate = random.nextDouble() <= this.config.getBitAddRate();
-                if(!shouldMutate){
-                    break;
-                }
-
-                individual.addGene(randomGene);
-                break;
-            case REMOVE:
-                shouldMutate = random.nextDouble() <= this.config.getBitRemoveRate();
-                if(!shouldMutate){
-                    break;
-                }
-
-                if(individual.getGenomeLength() == 1){
-                    break;
-                }
-                individual.removeGene(randomGeneIndex);
-                break;
-            case FLIP:
-                shouldMutate = random.nextDouble() <= this.config.getBitFlipRate();
-                if(!shouldMutate){
-                    break;
-                }
-
-                individual.setGene(randomGeneIndex, randomGene);
-                break;
-            default:
-                throw new UnsupportedOperationException("MutationStrategy was not ADD, REMOVE or FLIP");
+        // Pick a mutation in a roulette-like fashion
+        double pick = random.nextDouble(config.getMutationRate());
+        if (pick <= config.getBitAddRate()) {
+            // ADD mutation
+            individual.addGene(randomGene);
+        } else if (pick <= config.getBitAddRate() + config.getBitRemoveRate()) {
+            // REMOVE mutation
+            individual.removeGene(randomGeneIndex);
+        } else {
+            // FLIP mutation
+            individual.setGene(randomGeneIndex, randomGene);
         }
-
         return individual;
     }
 
