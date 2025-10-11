@@ -285,7 +285,9 @@ public class GeneticAlgorithm {
             individual.addGene(randomGene);
         } else if (pick <= config.getBitAddRate() + config.getBitRemoveRate()) {
             // REMOVE mutation
-            individual.removeGene(randomGeneIndex);
+            if (individual.getGenomeLength() > 1) {
+                individual.removeGene(randomGeneIndex);
+            }
         } else {
             // FLIP mutation
             individual.setGene(randomGeneIndex, randomGene);
